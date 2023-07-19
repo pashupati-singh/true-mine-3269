@@ -1,7 +1,12 @@
 import "./App.css";
+import Login from "./Pages/Login";
 
 function App() {
-  return <div className="App">true-mine-3269</div>;
+  return (
+    <div>
+      <Login />
+    </div>
+  );
 }
 
 export default App;
