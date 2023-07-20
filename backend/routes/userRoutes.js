@@ -9,7 +9,7 @@ const authMiddleware = require("../middlewares/authMiddleware");
 
 userRoutes.post("/register", async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { firstname, lastname, email, password } = req.body;
 
     const existingUser = await userModel.findOne({ email });
     if (existingUser) {
@@ -18,25 +18,24 @@ userRoutes.post("/register", async (req, res) => {
         .send({ msg: "User already exists, Please register again !!!" });
     }
 
+    const nameRegex = /^\S*$/;
+    if (!nameRegex.test(firstname)) {
+      return res
+        .status(400)
+        .send({ msg: "White space is not allowed in the firstname !!!" });
+    }
+
+    if (!nameRegex.test(lastname)) {
+      return res
+        .status(400)
+        .send({ msg: "White space is not allowed in the lastname !!!" });
+    }
+
     const emailRegex = /^\S*$/;
-    if (!emailRegex.test(email)) {
+    if (!emailRegex.test(email.trim())) {
       return res
         .status(400)
         .send({ msg: "White space is not allowed in the email address !!!" });
-    }
-
-    const existingUsername = await userModel.findOne({ username });
-    if (existingUsername) {
-      return res.status(400).send({
-        msg: "Username is already taken, Please choose a different username !!!",
-      });
-    }
-
-    const usernameRegex = /^\S*$/;
-    if (!usernameRegex.test(username)) {
-      return res
-        .status(400)
-        .send({ msg: "White space is not allowed in the username !!!" });
     }
 
     const passwordRegex =
@@ -80,7 +79,11 @@ userRoutes.post("/login", async (req, res) => {
     if (passwordCheck) {
       const token = jwt.sign({ userID: userCheck._id }, process.env.SECRET_KEY);
 
-      return res.status(200).send({ msg: "Login successful !!!", token });
+      return res.status(200).send({
+        msg: "Login successful !!!",
+        token,
+        username: `${userCheck.firstname} ${userCheck.lastname}`,
+      });
     } else {
       return res
         .status(400)
