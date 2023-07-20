@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 app.use("/user", userRoutes);
 app.use("/products", productRoutes);
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 7070, () => {
   try {
     connection();
 

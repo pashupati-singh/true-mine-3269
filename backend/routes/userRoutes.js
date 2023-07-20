@@ -5,7 +5,6 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const blacklistModel = require("../models/blacklistModel");
-const authMiddleware = require("../middlewares/authMiddleware");
 
 userRoutes.post("/register", async (req, res) => {
   try {
@@ -15,27 +14,27 @@ userRoutes.post("/register", async (req, res) => {
     if (existingUser) {
       return res
         .status(400)
-        .send({ msg: "User already exists, Please register again !!!" });
+        .send({ msg: "User already exists, Please register again" });
     }
 
     const nameRegex = /^\S*$/;
     if (!nameRegex.test(firstname)) {
       return res
         .status(400)
-        .send({ msg: "White space is not allowed in the firstname !!!" });
+        .send({ msg: "White space is not allowed in the firstname" });
     }
 
     if (!nameRegex.test(lastname)) {
       return res
         .status(400)
-        .send({ msg: "White space is not allowed in the lastname !!!" });
+        .send({ msg: "White space is not allowed in the lastname" });
     }
 
     const emailRegex = /^\S*$/;
     if (!emailRegex.test(email.trim())) {
       return res
         .status(400)
-        .send({ msg: "White space is not allowed in the email address !!!" });
+        .send({ msg: "White space is not allowed in the email address" });
     }
 
     const passwordRegex =
@@ -43,7 +42,7 @@ userRoutes.post("/register", async (req, res) => {
     if (!passwordRegex.test(password)) {
       return res
         .status(400)
-        .send({ msg: "Weak password, Please select a new password !!!" });
+        .send({ msg: "Weak password, Please select a new password" });
     }
 
     const hashPassword = await bcrypt.hash(password, 8);
@@ -52,9 +51,7 @@ userRoutes.post("/register", async (req, res) => {
       password: hashPassword,
     });
 
-    return res
-      .status(200)
-      .send({ msg: "A new user has been registered successfully !!!", user });
+    return res.status(200).send({ msg: "Registered successfull", user });
   } catch (error) {
     return res.status(400).send({ error: error.message });
   }
@@ -67,40 +64,76 @@ userRoutes.post("/login", async (req, res) => {
     if (!userCheck) {
       return res
         .status(400)
-        .send({ msg: "User doesn't exist, Please register again !!!" });
+        .send({ msg: "User doesn't exist, Please register again" });
     }
 
     const passwordCheck = await bcrypt.compare(password, userCheck.password);
-
-    if (!passwordCheck) {
-      return res.status(400).send({ msg: "Please enter your password !!!" });
-    }
 
     if (passwordCheck) {
       const token = jwt.sign({ userID: userCheck._id }, process.env.SECRET_KEY);
 
       return res.status(200).send({
-        msg: "Login successful !!!",
+        msg: "Login successfull",
         token,
         username: `${userCheck.firstname} ${userCheck.lastname}`,
       });
     } else {
       return res
         .status(400)
-        .send({ msg: "Incorrect Password, please try again !!!" });
+        .send({ msg: "Invaild password, please try again" });
     }
   } catch (error) {
     return res.status(400).send({ error: error.message });
   }
 });
 
-userRoutes.get("/logout", authMiddleware, async (req, res) => {
+userRoutes.post("/logout", async (req, res) => {
   try {
-    await blacklistModel.updateMany({}, { $push: { blacklist: [token] } });
-    return res.status(200).send({ msg: "Logout successful !!!" });
+    const token = req.headers.authorization?.split(" ")[1] || null;
+
+    // console.log(token);
+
+    if (!token) {
+      return res.status(401).send({ msg: "Invaild token, please login again" });
+    }
+
+    const xxx = await addToBlacklist(token);
+
+    console.log("sabir", xxx);
+
+    return res.status(200).send({ msg: "Logged out successfull" });
   } catch (error) {
     return res.status(400).send({ error: error.message });
   }
 });
+
+const addToBlacklist = async (token) => {
+  try {
+    const existingBlacklist = await blacklistModel.findOne();
+
+    if (token) {
+      const existingToken = await blacklistModel.find({
+        blacklist: { $in: token },
+      });
+
+      console.log(existingToken.length);
+
+      if (existingToken.length) {
+        return { error: "Invaild token, please try again" };
+      }
+    }
+
+    if (existingBlacklist) {
+      // If the blacklist document already exists, push the token to the array
+      existingBlacklist.blacklist.push(token);
+      await existingBlacklist.save();
+    } else {
+      // If the blacklist document does not exist, create a new one
+      await blacklistModel.create({ blacklist: [token] });
+    }
+  } catch (error) {
+    return { error: error.message };
+  }
+};
 
 module.exports = userRoutes;
