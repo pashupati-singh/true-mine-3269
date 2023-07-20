@@ -97,11 +97,13 @@ userRoutes.post("/logout", async (req, res) => {
       return res.status(401).send({ msg: "Invaild token, please login again" });
     }
 
-    const xxx = await addToBlacklist(token);
+    const blacklistRes = await addToBlacklist(token);
 
-    console.log("sabir", xxx);
-
-    return res.status(200).send({ msg: "Logged out successfull" });
+    if (blacklistRes) {
+      return res.status(400).send({ error: blacklistRes.error });
+    } else {
+      return res.status(200).send({ msg: "Logged out successfull" });
+    }
   } catch (error) {
     return res.status(400).send({ error: error.message });
   }
@@ -115,8 +117,6 @@ const addToBlacklist = async (token) => {
       const existingToken = await blacklistModel.find({
         blacklist: { $in: token },
       });
-
-      console.log(existingToken.length);
 
       if (existingToken.length) {
         return { error: "Invaild token, please try again" };
