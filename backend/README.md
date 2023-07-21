@@ -1,7 +1,7 @@
 # SERVER
 
 ## Introduction:
-- The Backend API is designed to manage the Product and User. It allows clients to create, read, update, and delete tasks through HTTP requests.
+- The Backend API is designed to manage the Product and User. It allows clients to  read the products through HTTP requests.
 
 ## Architecture:
 The backend follows a three-tier architecture:
