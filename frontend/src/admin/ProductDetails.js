@@ -9,7 +9,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    // Fetch product details from the API based on the product ID and set it in the state
+
     axios.get(`https://gardenguru-server.onrender.com/product/getproduct/${productID}`)
       .then(response => setProduct(response.data))
       .catch(error => console.error(error));
@@ -27,10 +27,9 @@ const ProductDetails = () => {
         <h3>{product.title}</h3>
         <p>Price: ${product.price}</p>
         <p>Description: {product.description}</p>
-        {/* Add more product details as needed */}
+     
       </div>
-      <Link to={`/admin/product/${productID}/edit`}>Edit</Link>
-      <Link to={`/admin/product/${productID}/delete`}>Delete</Link>
+
     </div>
   );
 };
