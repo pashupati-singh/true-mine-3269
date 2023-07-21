@@ -71,74 +71,74 @@ _Base URL:_ http://localhost:8080/
 
 _These Endpoints are for the user._
 
-- _POST_:- /user/register
+- _POST:_ /user/register
 
-- Description: Create a new user.
-- Request Body: JSON object with properties firstname, lastname, email & password.
-- Response: JSON object with the newly registered user & success message.
+- _Description:_ Create a new user.
+- _Request Body:_ JSON object with properties firstname, lastname, email & password.
+- _Response:_ JSON object with the newly registered user & success message.
   
-- POST:- /user/login
+- _POST:_ /user/login
 
-- Description: Log in to the registered user.
-- Request Body: JSON object with properties email & password.
-- Response: JSON object with the username, token & success message.
+- _Description:_ Log in to the registered user.
+- _Request Body:_ JSON object with properties email & password.
+- _Response:_ JSON object with the username, token & success message.
   
-- POST:- /user/logout
+- _POST:_ /user/logout
 
-- Description: Logged out the user.
-- Request Body: Need token to be Logged.
-- Response: Success message.
+- _Description:_ Logged out the user.
+- _Request Body:_ Need token to be Logged.
+- _Response:_ Success message.
 
 _These Endpoints are for products._
 
-- GET:- /product/getproducts
+- _GET:_ /product/getproducts
 
 - _Note:-_ You can use this route also for search based on title, sort based on price, and pagination. Please use these keys to access these functionality _title, 
    sortbyprice, pageno, pagelimit_
 
-- Description: Get a list of all products.
-- Response: Array of task objects with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
+- _Description:_ Get a list of all products.
+- _Response:_ Array of task objects with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 
-- GET:- /product/getproduct/:productID
+- _GET:_ /product/getproduct/:productID
 
-- Description: Get details of a specific product by its _id.
-- Request Body: Product _id as a string.
-- Response: JSON object with the specific product.
+- _Description:_ Get details of a specific product by its _id.
+- _Request Body:_ Product _id as a string.
+- _Response:_ JSON object with the specific product.
 
-- POST:- /product/addproduct
+- _POST:_ /product/addproduct
 
-- Description: Create a new product.
-- Request Body: JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
-- Response: JSON object with the newly created product & success message.
+- _Description:_ Create a new product.
+- _Request Body:_ JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
+- _Response:_ JSON object with the newly created product & success message.
 
-- PATCH:- /product/update/:productID
+- _PATCH:_ /product/update/:productID
 
-- Description: Update the propertie of a product by its _id.
-- Request Body: JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
-- Response: JSON object with the updated product & success message.
+- _Description:_ Update the propertie of a product by its _id.
+- _Request Body:_ JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
+- _Response:_ JSON object with the updated product & success message.
 
-- DELETE:- /product/delete/:productID
+- _DELETE:_ /product/delete/:productID
 
-- Description: Delete a product by its _id.
-- Response: Success message.
+- _Description:_ Delete a product by its _id.
+- _Response:_ Success message.
 
 _These Endpoints are for cart._
 
-- GET:- /cart/cartproducts
+- _GET:_ /cart/cartproducts
 
-- Description: Get a list of logging user cart products.
-- Response: Array of task objects with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
+- _Description:_ Get a list of logging user cart products.
+- _Response:_ Array of task objects with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 
-- POST:- /cart/addtoproduct
+- _POST:_ /cart/addtoproduct
 
-- Description: Create a new cart product.
-- Request Body: JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
-- Response: JSON object with the newly created cart product & success message.
+- _Description:_ Create a new cart product.
+- _Request Body:_ JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
+- _Response:_ JSON object with the newly created cart product & success message.
 
-- DELETE:- /cart/delete/:cartproductID
+- _DELETE:_ /cart/delete/:cartproductID
 
-- Description: Delete a cart product by its _id.
-- Response: Success message.
+- _Description:_ Delete a cart product by its _id.
+- _Response:_ Success message.
 
 ## Data Models:
 - User example:-
