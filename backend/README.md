@@ -34,6 +34,7 @@ The backend follows a three-tier architecture:
 - http://localhost:8080/
 
 ## Endpoints:
+
 _These Endpoints are for user._
 
 - POST:- /user/register
