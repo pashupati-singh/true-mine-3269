@@ -34,6 +34,28 @@ The backend follows a three-tier architecture:
 - http://localhost:8080/
 
 ## Endpoints:
+_These Endpoints are for user._
+
+- POST:- /user/register
+
+- Description: Create a new user.
+- Request Body: JSON object with properties firstname, lastname, email & password.
+- Response: JSON object with the newly registered user.
+- 
+- POST:- /user/login
+
+- Description: Login registered user.
+- Request Body: JSON object with properties email & password.
+- Response: JSON object with the username & token.
+- 
+- POST:- /user/logout
+
+- Description: Logged out the user.
+- Request Body: Token.
+- Response: Success message.
+
+_These Endpoints are for products._
+
 - GET:- /product/getproducts
   
 - Description: Get a list of all products.
