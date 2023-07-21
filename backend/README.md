@@ -42,13 +42,13 @@ _These Endpoints are for user._
 - Description: Create a new user.
 - Request Body: JSON object with properties firstname, lastname, email & password.
 - Response: JSON object with the newly registered user.
-- 
+  
 - POST:- /user/login
 
 - Description: Login registered user.
 - Request Body: JSON object with properties email & password.
 - Response: JSON object with the username & token.
-- 
+  
 - POST:- /user/logout
 
 - Description: Logged out the user.
