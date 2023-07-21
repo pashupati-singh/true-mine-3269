@@ -5,6 +5,7 @@ require("dotenv").config();
 const connection = require("./db");
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
+const cartRoutes = require("./routes/cartRoutes");
 
 app.use(express.json());
 app.use(express.text());
@@ -19,7 +20,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/user", userRoutes);
-app.use("/products", productRoutes);
+app.use("/product", productRoutes);
+app.use("/cart", cartRoutes);
 
 app.listen(process.env.PORT || 7070, () => {
   try {
