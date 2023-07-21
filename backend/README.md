@@ -62,18 +62,18 @@ _These Endpoints are for products._
 - Description: Get a list of all products.
 - Response: Array of task objects with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 
+- GET:- /product/getproduct/:productID
+
+- Description: Get details of a specific product by its _id.
+- Response: JSON object with the specific product.
+
 - POST:- /product/addproduct
 
 - Description: Create a new product.
 - Request Body: JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 - Response: JSON object with the newly created product & success message.
 
-- GET:- /product/update/:productID
-
-- Description: Get details of a specific product by its _id.
-- Response: JSON object with the specific product.
-
-- PATCH:- /product/:productID
+- PATCH:- /product/update/:productID
 
 - Description: Update the propertie of a product by its _id.
 - Request Body: JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
