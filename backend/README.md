@@ -45,14 +45,14 @@ _These Endpoints are for user._
   
 - POST:- /user/login
 
-- Description: Login registered user.
+- Description: Login the registered user.
 - Request Body: JSON object with properties email & password.
 - Response: JSON object with the username, token & success message.
   
 - POST:- /user/logout
 
 - Description: Logged out the user.
-- Request Body: Need token.
+- Request Body: Need token to Logged.
 - Response: Success message.
 
 _These Endpoints are for products._
@@ -61,6 +61,7 @@ _These Endpoints are for products._
 
 - Description: Get a list of all products.
 - Response: Array of task objects with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
+- _Note:-_ You can use this route also for search based on title, sort based on price, and pagination. please use these keys to access these functionality _title, sortbyprice, pageno, pagelimit_
 
 - GET:- /product/getproduct/:productID
 
