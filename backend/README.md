@@ -65,6 +65,7 @@ _These Endpoints are for products._
 - GET:- /product/getproduct/:productID
 
 - Description: Get details of a specific product by its _id.
+- Request Body: Product _id as a string.
 - Response: JSON object with the specific product.
 
 - POST:- /product/addproduct
