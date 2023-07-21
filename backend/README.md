@@ -1,6 +1,4 @@
-# SERVER
-
-## Introduction:
+# SERVER Introduction:
 - Our E-Commerce Website Backend is the backbone of our online shopping experience, handling critical operations and ensuring smooth functionality. It serves as the engine that powers product management, user authentication, order processing, and more. With its robust architecture and scalable design, our backend ensures a seamless shopping experience for both customers and administrators. The Backend API is designed to manage the Product and User. It allows clients to  read the products through HTTP requests.
 
 ## Architecture:
