@@ -58,7 +58,8 @@ _These Endpoints are for user._
 _These Endpoints are for products._
 
 - GET:- /product/getproducts
-### _Note:-_ You can use this route also for search based on title, sort based on price, and pagination. Please use these keys to access these functionality _title, 
+
+- _Note:-_ You can use this route also for search based on title, sort based on price, and pagination. Please use these keys to access these functionality _title, 
    sortbyprice, pageno, pagelimit_
 
 - Description: Get a list of all products.
