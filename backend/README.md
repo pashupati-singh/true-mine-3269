@@ -34,29 +34,29 @@ The backend follows a three-tier architecture:
 - http://localhost:8080/
 
 ## Endpoints:
-- GET /product/getproducts
+- GET:- /product/getproducts
   
 - Description: Get a list of all products.
 - Response: Array of task objects with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 
-- POST /product/addproduct
+- POST:- /product/addproduct
 
 - Description: Create a new product.
 - Request Body: JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 - Response: JSON object with the newly created product.
 
-- GET /product/:productID
+- GET:- /product/:productID
 
 - Description: Get details of a specific product by its _id.
 - Response: JSON object with the specific product.
 
-- PATCH /product/:productID
+- PATCH:- /product/:productID
 
 - Description: Update the propertie of a product by its _id.
 - Request Body: JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 - Response: JSON object with the updated product.
 
-- DELETE /product/:productID
+- DELETE:- /product/:productID
 
 - Description: Delete a product by its _id.
 - Response: Success message.
@@ -80,7 +80,7 @@ The backend follows a three-tier architecture:
 - Error responses include a message field with a description of the error.
 
 ## Security Considerations:
-- Authentication is not implemented in this dummy backend for simplicity.
+- Authentication is implemented in this backend.
 - Do not use this backend in a production environment without proper security measures.
 
 Please note that this documentation is for illustration purposes and does not include real functionalities. In a real-world scenario, the documentation would be much more comprehensive, detailed, and tailored to the specific backend system being described.
