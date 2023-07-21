@@ -8,7 +8,7 @@ The backend follows a three-tier architecture:
 ### Application Layer: Handles business logic and interacts with the Data Access Layer.
 ### Data Access Layer: Manages interactions with the database.
 
-## Key Features
+## Key Features:
 - _Product Management:_ Effortlessly add, update, and remove products from the catalog. Categorize and organize products for easy discovery.
 
 - _User Authentication:_ Secure user registration and authentication to ensure a safe shopping environment. Allow customers to manage their profiles and track their order history.
@@ -23,7 +23,7 @@ The backend follows a three-tier architecture:
 
 - _Reporting and Analytics:_ Generate valuable insights through data-driven reports, helping administrators make informed decisions and optimize business strategies.
 
-## Technologies Used
+## Technologies:
 Our backend leverages cutting-edge technologies to deliver exceptional performance and maintainability:
 
 - _Node.js:_ A versatile and efficient JavaScript runtime that powers our server-side logic.
@@ -36,7 +36,7 @@ Our backend leverages cutting-edge technologies to deliver exceptional performan
 
 - _JSON Web Tokens (JWT):_ Securely manage user authentication and authorization.
 
-- _Bcrypt:_ Securely manage user sensitive data.
+- _Bcrypt:_ Securely manage user-sensitive data.
 
 - _RESTful API:_ We follow REST principles to build an intuitive and predictable API.
 
@@ -47,7 +47,7 @@ To get started with our E-Commerce Website Backend, follow our easy installation
  
 - Install Node.js and npm.
 
-- Clone the repository from url.
+- Clone the repository from the URL.
 
 - Run npm install to install the required dependencies.
 
@@ -69,9 +69,9 @@ _Base URL:_ http://localhost:8080/
 
 ## Endpoints:
 
-_These Endpoints are for user._
+_These Endpoints are for the user._
 
-- POST:- /user/register
+- _POST_:- /user/register
 
 - Description: Create a new user.
 - Request Body: JSON object with properties firstname, lastname, email & password.
@@ -79,14 +79,14 @@ _These Endpoints are for user._
   
 - POST:- /user/login
 
-- Description: Login the registered user.
+- Description: Log in to the registered user.
 - Request Body: JSON object with properties email & password.
 - Response: JSON object with the username, token & success message.
   
 - POST:- /user/logout
 
 - Description: Logged out the user.
-- Request Body: Need token to Logged.
+- Request Body: Need token to be Logged.
 - Response: Success message.
 
 _These Endpoints are for products._
