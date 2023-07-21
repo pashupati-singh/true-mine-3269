@@ -58,7 +58,7 @@ _These Endpoints are for user._
 _These Endpoints are for products._
 
 - GET:- /product/getproducts
-  
+
 - Description: Get a list of all products.
 - Response: Array of task objects with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 
