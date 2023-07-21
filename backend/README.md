@@ -61,7 +61,7 @@ To get started with our E-Commerce Website Backend, follow our easy installation
 - Environment variables
 
 ## API Documentation:
-- For detailed information on the available endpoints, request parameters, and responses, refer to our API Documentation.
+For detailed information on the available endpoints, request parameters, and responses, refer to our API Documentation.
 
 _PORT:_ The port on which the server listens (default: 8080).
 
