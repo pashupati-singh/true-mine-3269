@@ -71,7 +71,7 @@ _Base URL:_ http://localhost:8080/
 
 ### These Endpoints are for the user.
 
-- _POST:_ /user/register
+- _POST:-_ /user/register
 
 - _Description:_ Create a new user.
 - _Request Body:_ JSON object with properties firstname, lastname, email & password.
