@@ -77,13 +77,13 @@ _Base URL:_ http://localhost:8080/
 - _Request Body:_ JSON object with properties firstname, lastname, email & password.
 - _Response:_ JSON object with the newly registered user & success message.
   
-- _POST:_ /user/login
+- _POST:-_ /user/login
 
 - _Description:_ Log in to the registered user.
 - _Request Body:_ JSON object with properties email & password.
 - _Response:_ JSON object with the username, token & success message.
   
-- _POST:_ /user/logout
+- _POST:-_ /user/logout
 
 - _Description:_ Logged out the user.
 - _Request Body:_ Need token to be Logged.
@@ -91,7 +91,7 @@ _Base URL:_ http://localhost:8080/
 
 ### These Endpoints are for products.
 
-- _GET:_ /product/getproducts
+- _GET:-_ /product/getproducts
 
 - _Note:-_ You can use this route also for search based on title, sort based on price, and pagination. Please use these keys to access these functionality _title, 
    sortbyprice, pageno, pagelimit_
@@ -99,43 +99,43 @@ _Base URL:_ http://localhost:8080/
 - _Description:_ Get a list of all products.
 - _Response:_ Array of task objects with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 
-- _GET:_ /product/getproduct/:productID
+- _GET:-_ /product/getproduct/:productID
 
 - _Description:_ Get details of a specific product by its _id.
 - _Request Body:_ Product _id as a string.
 - _Response:_ JSON object with the specific product.
 
-- _POST:_ /product/addproduct
+- _POST:-_ /product/addproduct
 
 - _Description:_ Create a new product.
 - _Request Body:_ JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 - _Response:_ JSON object with the newly created product & success message.
 
-- _PATCH:_ /product/update/:productID
+- _PATCH:-_ /product/update/:productID
 
 - _Description:_ Update the propertie of a product by its _id.
 - _Request Body:_ JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 - _Response:_ JSON object with the updated product & success message.
 
-- _DELETE:_ /product/delete/:productID
+- _DELETE:-_ /product/delete/:productID
 
 - _Description:_ Delete a product by its _id.
 - _Response:_ Success message.
 
 ### These Endpoints are for cart.
 
-- _GET:_ /cart/cartproducts
+- _GET:-_ /cart/cartproducts
 
 - _Description:_ Get a list of logging user cart products.
 - _Response:_ Array of task objects with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 
-- _POST:_ /cart/addtoproduct
+- _POST:-_ /cart/addtoproduct
 
 - _Description:_ Create a new cart product.
 - _Request Body:_ JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 - _Response:_ JSON object with the newly created cart product & success message.
 
-- _DELETE:_ /cart/delete/:cartproductID
+- _DELETE:-_ /cart/delete/:cartproductID
 
 - _Description:_ Delete a cart product by its _id.
 - _Response:_ Success message.
