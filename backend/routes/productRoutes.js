@@ -39,14 +39,16 @@ productRoutes.get("/getproducts", async (req, res) => {
   }
 });
 
-productRoutes.get("/addtocart", async (req, res) => {
+productRoutes.get("/getproduct/:productID", async (req, res) => {
   try {
     const existingUserID = req.body.userID;
+    const productID = req.params.productID;
 
-    const cartProducts = await cartModel.find({
-      userID: existingUserID,
-    });
-    return res.status(200).send(cartProducts);
+    const product = await productModel.findById(productID);
+
+    if (product.userID.toString() == existingUserID) {
+      return res.status(200).send(product);
+    }
   } catch (error) {
     return res.status(400).send({ error: error.message });
   }
