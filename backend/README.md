@@ -68,7 +68,7 @@ _These Endpoints are for products._
 - Request Body: JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 - Response: JSON object with the newly created product.
 
-- GET:- /product/:productID
+- GET:- /product/update/:productID
 
 - Description: Get details of a specific product by its _id.
 - Response: JSON object with the specific product.
@@ -79,9 +79,27 @@ _These Endpoints are for products._
 - Request Body: JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 - Response: JSON object with the updated product.
 
-- DELETE:- /product/:productID
+- DELETE:- /product/delete/:productID
 
 - Description: Delete a product by its _id.
+- Response: Success message.
+
+_These Endpoints are for cart._
+
+- GET:- /cart/cartproducts
+
+- Description: Get a list of logging user cart products.
+- Response: Array of task objects with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
+
+- POST:- /cart/addtoproduct
+
+- Description: Create a new cart product.
+- Request Body: JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
+- Response: JSON object with the newly created cart product.
+
+- DELETE:- /cart//delete/:cartproductID
+
+- Description: Delete a cart product by its _id.
 - Response: Success message.
 
 ## Data Models:
