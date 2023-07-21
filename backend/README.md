@@ -1,9 +1,9 @@
 # server
 
-# Introduction:
+## Introduction:
 - The Backend API is designed to manage the Product and User. It allows clients to create, read, update, and delete tasks through HTTP requests.
 
-# Architecture:
+## Architecture:
 The backend follows a three-tier architecture:
 
 ## Presentation Layer:
@@ -13,7 +13,7 @@ The backend follows a three-tier architecture:
 ## Data Access Layer:
 - Manages interactions with the database.
 
-# Installation and Setup:
+## Installation and Setup:
 - To set up the Backend on your local machine, follow these steps:
 
 - Install Node.js and npm.
@@ -23,13 +23,13 @@ The backend follows a three-tier architecture:
 - Set environment variables for database connection: PORT, MONGODB_URL, SECRET_KEY.
 - Run npm start to start the backend server.
   
-# Configuration:
+## Configuration:
 - Environment variables
 
-# PORT:
+## PORT:
 - The port on which the server listens (default: 8080).
   
-# API Documentation:
+## API Documentation:
 ## Base URL:
 - http://localhost:8080/
 
