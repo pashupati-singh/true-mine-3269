@@ -109,23 +109,23 @@ _These Endpoints are for cart._
 ## Data Models:
 - User example:-
   {
-    "firstname": user_firstname,
-    "lastname": user_lastname,
-    "email": user_email,
-    "password": user_password,
-  }
+    firstname: { type: String, required: true },
+    lastname: { type: String, required: true },
+    email: { type: String, required: true },
+    password: { type: String, required: true },
+  },
   
 - Product & cart example:-
   {
-    "primary_image": primary_image_url,
-    "alternative_image": alternative_image_url,
-    "title": product_title,
-    "price": product_price,
-    "description": product_description,
-    "old_price": _This key is optional_,
-    "category": product_category,
-    "type": product_type,
-  }
+    primary_image: { type: String, required: true },
+    alternative_image: { type: String, required: true },
+    title: { type: String, required: true },
+    price: { type: Number, required: true },
+    description: { type: String, required: true },
+    old_price: { type: String, required: false },
+    category: { type: String, required: true },
+    type: { type: String, required: true },
+  },
   
 ## Error Handling:
 - HTTP status codes 400, 404, and 500 are used for error responses.
