@@ -1,13 +1,17 @@
 # server
+
 # Introduction:
 - The Backend API is designed to manage the Product and User. It allows clients to create, read, update, and delete tasks through HTTP requests.
 
 # Architecture:
 The backend follows a three-tier architecture:
 
-## Presentation Layer: Accepts HTTP requests and communicates with the Application Layer.
-## Application Layer: Handles business logic and interacts with the Data Access Layer.
-## Data Access Layer: Manages interactions with the database.
+## Presentation Layer:
+- Accepts HTTP requests and communicates with the Application Layer.
+## Application Layer:
+- Handles business logic and interacts with the Data Access Layer.
+## Data Access Layer:
+- Manages interactions with the database.
 
 # Installation and Setup:
 - To set up the Backend on your local machine, follow these steps:
