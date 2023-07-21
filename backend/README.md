@@ -99,7 +99,7 @@ _These Endpoints are for cart._
 - Request Body: JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 - Response: JSON object with the newly created cart product & success message.
 
-- DELETE:- /cart//delete/:cartproductID
+- DELETE:- /cart/delete/:cartproductID
 
 - Description: Delete a cart product by its _id.
 - Response: Success message.
