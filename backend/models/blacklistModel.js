@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const blacklistSchema = new mongoose.Schema(
   {
-    blacklist: { type: [String], default: [] },
+    blacklist: { type: [String], required: true },
   },
   {
     versionKey: false,

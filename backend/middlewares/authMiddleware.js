@@ -14,7 +14,7 @@ const authMiddleware = async (req, res, next) => {
       if (existingToken.length) {
         return res
           .status(400)
-          .send({ error: "Invaild token, please login again !!!" });
+          .send({ error: "Invaild token, please try again" });
       }
 
       const decoded = jwt.verify(token, process.env.SECRET_KEY);
