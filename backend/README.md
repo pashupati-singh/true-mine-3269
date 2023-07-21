@@ -43,13 +43,18 @@ Our backend leverages cutting-edge technologies to deliver exceptional performan
 - _Custom middleware:_ A user authentication middleware for Node.js that ensures secure and customizable authentication.
 
 ## Installation and Setup:
-- To get started with our E-Commerce Website Backend, follow our easy installation instructions.
-- 
+To get started with our E-Commerce Website Backend, follow our easy installation instructions.
+ 
 - Install Node.js and npm.
+
 - Clone the repository from url.
+
 - Run npm install to install the required dependencies.
+
 - Create a PostgreSQL database named _your choose_.
+
 - Set environment variables for database connection: PORT, MONGODB_URL, SECRET_KEY.
+
 - Run npm start to start the backend server.
   
 ## Configuration:
