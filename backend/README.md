@@ -11,36 +11,38 @@ The backend follows a three-tier architecture:
 ### Data Access Layer: Manages interactions with the database.
 
 ## Key Features
-- Product Management: Effortlessly add, update, and remove products from the catalog. Categorize and organize products for easy discovery.
+- _Product Management:_ Effortlessly add, update, and remove products from the catalog. Categorize and organize products for easy discovery.
 
-- User Authentication: Secure user registration and authentication to ensure a safe shopping environment. Allow customers to manage their profiles and track their order history.
+- _User Authentication:_ Secure user registration and authentication to ensure a safe shopping environment. Allow customers to manage their profiles and track their order history.
 
-- Shopping Cart and Checkout: Enable customers to add products to their cart, proceed to checkout, and complete their purchases securely.
+- _Shopping Cart_ and Checkout: Enable customers to add products to their cart, proceed to checkout, and complete their purchases securely.
 
-- Order Processing: Efficiently handle order fulfillment, shipment tracking, and payment processing for a seamless customer experience.
+- _Order Processing:_ Efficiently handle order fulfillment, shipment tracking, and payment processing for a seamless customer experience.
 
-- Inventory Management: Track product availability, stock levels, and handle restocking processes.
+- _Inventory Management:_ Track product availability, stock levels, and handle restocking processes.
 
-- Discounts and Promotions: Implement special offers, discounts, and promotional campaigns to attract and retain customers.
+- _Discounts and Promotions:_ Implement special offers, discounts, and promotional campaigns to attract and retain customers.
 
-- Reporting and Analytics: Generate valuable insights through data-driven reports, helping administrators make informed decisions and optimize business strategies.
+- _Reporting and Analytics:_ Generate valuable insights through data-driven reports, helping administrators make informed decisions and optimize business strategies.
 
 ## Technologies Used
-### Our backend leverages cutting-edge technologies to deliver exceptional performance and maintainability:
+Our backend leverages cutting-edge technologies to deliver exceptional performance and maintainability:
 
-- Node.js: A versatile and efficient JavaScript runtime that powers our server-side logic.
+- _Node.js:_ A versatile and efficient JavaScript runtime that powers our server-side logic.
 
-- Express.js: A flexible and lightweight web application framework that facilitates the development of robust APIs.
+- _Express.js:_ A flexible and lightweight web application framework that facilitates the development of robust APIs.
 
-- MongoDB: A powerful NoSQL database for efficient data storage and retrieval.
+- _MongoDB:_ A powerful NoSQL database for efficient data storage and retrieval.
 
-- Mongoose: An elegant MongoDB object modeling tool that simplifies data manipulation and validation.
+- _Mongoose:_ An elegant MongoDB object modeling tool that simplifies data manipulation and validation.
 
-- JSON Web Tokens (JWT): Securely manage user authentication and authorization.
+- _JSON Web Tokens (JWT):_ Securely manage user authentication and authorization.
 
-- RESTful API: We follow REST principles to build an intuitive and predictable API.
+- _Bcrypt:_ Hide the sensitive data.
 
-- Custom middleware: A user authentication middleware for Node.js that ensures secure and customizable authentication.
+- _RESTful API:_ We follow REST principles to build an intuitive and predictable API.
+
+- _Custom middleware:_ A user authentication middleware for Node.js that ensures secure and customizable authentication.
 
 ## Installation and Setup:
 - To get started with our E-Commerce Website Backend, follow our easy installation instructions.
