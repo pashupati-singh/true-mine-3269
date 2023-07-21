@@ -69,7 +69,7 @@ _Base URL:_ http://localhost:8080/
 
 ## Endpoints:
 
-_These Endpoints are for the user._
+### These Endpoints are for the user.
 
 - _POST:_ /user/register
 
@@ -89,7 +89,7 @@ _These Endpoints are for the user._
 - _Request Body:_ Need token to be Logged.
 - _Response:_ Success message.
 
-_These Endpoints are for products._
+### These Endpoints are for products.
 
 - _GET:_ /product/getproducts
 
@@ -122,7 +122,7 @@ _These Endpoints are for products._
 - _Description:_ Delete a product by its _id.
 - _Response:_ Success message.
 
-_These Endpoints are for cart._
+### These Endpoints are for cart.
 
 - _GET:_ /cart/cartproducts
 
