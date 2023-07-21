@@ -105,8 +105,15 @@ _These Endpoints are for cart._
 - Response: Success message.
 
 ## Data Models:
-- Product json.
-- Examples:-
+- User example:-
+  {
+    "firstname": user_firstname,
+    "lastname": user_lastname,
+    "email": user_email,
+    "password": user_password,
+  }
+  
+- Product & cart example:-
   {
     "primary_image": primary_image_url,
     "alternative_image": alternative_image_url,
