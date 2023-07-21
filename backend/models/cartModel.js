@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const productSchema = new mongoose.Schema(
+const cartSchema = new mongoose.Schema(
   {
     primary_image: { type: String, required: true },
     alternative_image: { type: String, required: true },
@@ -21,6 +21,6 @@ const productSchema = new mongoose.Schema(
   }
 );
 
-const productModel = mongoose.model("products", productSchema);
+const cartModel = mongoose.model("carts", cartSchema);
 
-module.exports = productModel;
+module.exports = cartModel;
