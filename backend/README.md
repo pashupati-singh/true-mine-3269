@@ -168,5 +168,3 @@ _These Endpoints are for cart._
 ## Security Considerations:
 - Authentication is implemented in this backend.
 - Do not use this backend in a production environment without proper security measures.
-
-Please note that this documentation is for illustration purposes and does not include real functionalities. In a real-world scenario, the documentation would be much more comprehensive, detailed, and tailored to the specific backend system being described.
