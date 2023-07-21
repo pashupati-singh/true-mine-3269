@@ -61,7 +61,7 @@ _These Endpoints are for products._
 
 - Description: Get a list of all products.
 - Response: Array of task objects with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
-- _Note:-_ You can use this route also for search based on title, sort based on price, and pagination. please use these keys to access these functionality _title, sortbyprice, pageno, pagelimit_
+- _Note:-_ You can use this route also for search based on title, sort based on price, and pagination. Please use these keys to access these functionality _title, sortbyprice, pageno, pagelimit_
 
 - GET:- /product/getproduct/:productID
 
