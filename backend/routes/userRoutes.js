@@ -119,7 +119,7 @@ const addToBlacklist = async (token) => {
       });
 
       if (existingToken.length) {
-        return { error: "Invaild token, please try again" };
+        return { error: "User has already logged out" };
       }
     }
 

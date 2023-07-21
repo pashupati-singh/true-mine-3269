@@ -2,6 +2,7 @@ const express = require("express");
 const productRoutes = express.Router();
 const authMiddleware = require("../middlewares/authMiddleware");
 const productModel = require("../models/productModel");
+const cartModel = require("../models/cartModel");
 
 productRoutes.use(authMiddleware);
 
@@ -28,7 +29,7 @@ productRoutes.get("/getproducts", async (req, res) => {
 
     const products = await productModel
       .find(query)
-      .sort({ sortBy: sortOrder })
+      .sort({ [sortBy]: sortOrder })
       .skip(toSkip)
       .limit(pagelimit);
 
@@ -42,7 +43,7 @@ productRoutes.get("/addtocart", async (req, res) => {
   try {
     const existingUserID = req.body.userID;
 
-    const cartProducts = await productModel.find({
+    const cartProducts = await cartModel.find({
       userID: existingUserID,
     });
     return res.status(200).send(cartProducts);
