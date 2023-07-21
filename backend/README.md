@@ -101,9 +101,9 @@ _Base URL:_ http://localhost:8080/
 
 - _GET:_ /product/getproduct/:productID
 
-- _Description:_ Get details of a specific product by its _id.
-- _Request Body:_ Product _id as a string.
-- _Response:_ JSON object with the specific product.
+ _Description:_ Get details of a specific product by its _id.
+ _Request Body:_ Product _id as a string.
+ _Response:_ JSON object with the specific product.
 
 - _POST:_ /product/addproduct
 
