@@ -36,7 +36,7 @@ Our backend leverages cutting-edge technologies to deliver exceptional performan
 
 - _JSON Web Tokens (JWT):_ Securely manage user authentication and authorization.
 
-- _Bcrypt:_ Hide the sensitive data.
+- _Bcrypt:_ Securely manage user sensitive data.
 
 - _RESTful API:_ We follow REST principles to build an intuitive and predictable API.
 
