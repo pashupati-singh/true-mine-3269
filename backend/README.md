@@ -131,13 +131,13 @@ _Base URL:_ http://localhost:8080/
 
 - _POST:-_ /cart/addtoproduct
 
-- _Description:_ Create a new cart product.
+- _Description:_ Add a new product in the logging user cart lists.
 - _Request Body:_ JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 - _Response:_ JSON object with the newly created cart product & success message.
 
 - _DELETE:-_ /cart/delete/:cartproductID
 
-- _Description:_ Delete a cart product by its _id.
+- _Description:_ Delete a cart product in the logging user cart lists by its _id.
 - _Response:_ Success message.
 
 ## Data Models:
