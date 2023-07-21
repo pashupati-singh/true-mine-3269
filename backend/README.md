@@ -63,11 +63,9 @@ To get started with our E-Commerce Website Backend, follow our easy installation
 ## API Documentation:
 - For detailed information on the available endpoints, request parameters, and responses, refer to our API Documentation.
 
-## PORT:
-- The port on which the server listens (default: 8080).
+_PORT:_ The port on which the server listens (default: 8080).
 
-## Base URL:
-- http://localhost:8080/
+_Base URL:_ http://localhost:8080/
 
 ## Endpoints:
 
