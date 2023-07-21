@@ -41,18 +41,18 @@ _These Endpoints are for user._
 
 - Description: Create a new user.
 - Request Body: JSON object with properties firstname, lastname, email & password.
-- Response: JSON object with the newly registered user.
+- Response: JSON object with the newly registered user & success message.
   
 - POST:- /user/login
 
 - Description: Login registered user.
 - Request Body: JSON object with properties email & password.
-- Response: JSON object with the username & token.
+- Response: JSON object with the username, token & success message.
   
 - POST:- /user/logout
 
 - Description: Logged out the user.
-- Request Body: Token.
+- Request Body: Need token.
 - Response: Success message.
 
 _These Endpoints are for products._
@@ -66,7 +66,7 @@ _These Endpoints are for products._
 
 - Description: Create a new product.
 - Request Body: JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
-- Response: JSON object with the newly created product.
+- Response: JSON object with the newly created product & success message.
 
 - GET:- /product/update/:productID
 
@@ -77,7 +77,7 @@ _These Endpoints are for products._
 
 - Description: Update the propertie of a product by its _id.
 - Request Body: JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
-- Response: JSON object with the updated product.
+- Response: JSON object with the updated product & success message.
 
 - DELETE:- /product/delete/:productID
 
@@ -95,7 +95,7 @@ _These Endpoints are for cart._
 
 - Description: Create a new cart product.
 - Request Body: JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
-- Response: JSON object with the newly created cart product.
+- Response: JSON object with the newly created cart product & success message.
 
 - DELETE:- /cart//delete/:cartproductID
 
