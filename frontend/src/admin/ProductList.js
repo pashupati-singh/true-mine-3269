@@ -1,5 +1,4 @@
 
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -42,8 +41,13 @@ const ProductList = () => {
       <h2>Product List</h2>
       <ul style={productListStyle}>
         {products.map(product => (
+<<<<<<< HEAD
           <li key={product._id} style={listItemStyle}>
             <Link to={`/admin/product/${product._id}`} style={linkStyle}>{product.title}</Link>
+=======
+          <li key={product._id}>
+            <Link to={`/product/getproducts/${product._id}`}>{product.title}</Link>
+>>>>>>> a706de9d79cd9c405ce1b5a7209fd682da7f4573
           </li>
         ))}
       </ul>

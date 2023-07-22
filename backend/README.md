@@ -73,6 +73,12 @@ _Base URL:_ http://localhost:8080/
 
 - _POST:-_ /user/register
 
+### _Note:-_ Now while registration you have to check that password should contain all the following things, otherwise user cannot register.
+### _At least one uppercase character._
+### _At least one number._
+### _At least a special character._
+### _The length of password should be at least 8 characters long._
+
 - _Description:_ Create a new user.
 - _Request Body:_ JSON object with properties firstname, lastname, email & password.
 - _Response:_ JSON object with the newly registered user & success message.
@@ -93,10 +99,30 @@ _Base URL:_ http://localhost:8080/
 
 - _GET:-_ /product/getproducts
 
-- _Note:-_ You can use this route also for search based on title, sort based on price, and pagination. Please use these keys to access these functionality _title, 
-   sortbyprice, pageno, pagelimit_
+### _Note:-_ You can use this route also for search based on title, sort based on price, and pagination. Please use these keys to access these functionality _title, sortbyprice, pageno, pagelimit._
 
-- _Description:_ Get a list of all products.
+### _Please use these category & type key-value pair to perform any operation on these fields._
+
+1. category: gardening_inputs, type: fertilizers
+2. category: gardening_inputs, type: grow_bags
+3. category: gardening_inputs, type: grow_beds
+4. category: gardening_inputs, type: pots
+5. category: gardening_inputs, type: potting_medium
+6. category: hydroponics, type: accessorie_hydroponics
+7. category: hydroponics, type: diy_kits_hydroponics
+8. category: hydroponics, type: growing_media_hydroponics
+9. category: hydroponics, type: instrument_hydroponics
+10. category: hydroponics, type: nutrient_hydroponics
+11. category: organic_farming,type: bio_fertilizers
+12. category: organic_farming,type: bio_pesticides
+13. category: organic_farming,type: organic_fertilizers
+14. category: seeds, type: flower_seeds
+15. category: seeds, type: fruit_seeds
+16. category: seeds, type: herb_seeds
+17. category: seeds, type: microgreens_seeds
+18. category: seeds, type: vegetable_seeds
+
+- _Description:_ Get a list of all products or according to params.
 - _Response:_ Array of task objects with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 
 - _GET:-_ /product/getproduct/:productID
@@ -131,13 +157,13 @@ _Base URL:_ http://localhost:8080/
 
 - _POST:-_ /cart/addtoproduct
 
-- _Description:_ Create a new cart product.
+- _Description:_ Add a new cart product in the logging user cart lists.
 - _Request Body:_ JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
-- _Response:_ JSON object with the newly created cart product & success message.
+- _Response:_ JSON object with the newly created cart product in the logging user cart lists & success message.
 
 - _DELETE:-_ /cart/delete/:cartproductID
 
-- _Description:_ Delete a cart product by its _id.
+- _Description:_ Delete a cart product in the logging user cart lists by its _id.
 - _Response:_ Success message.
 
 ## Data Models:

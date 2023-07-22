@@ -4,8 +4,6 @@ const authMiddleware = require("../middlewares/authMiddleware");
 const productModel = require("../models/productModel");
 const cartModel = require("../models/cartModel");
 
-productRoutes.use(authMiddleware);
-
 productRoutes.get("/getproducts", async (req, res) => {
   try {
     const { title, pageno, pagelimit, sortbyprice } = req.query;
@@ -38,6 +36,8 @@ productRoutes.get("/getproducts", async (req, res) => {
     return res.status(400).send({ error: error.message });
   }
 });
+
+productRoutes.use(authMiddleware);
 
 productRoutes.get("/getproduct/:productID", async (req, res) => {
   try {
