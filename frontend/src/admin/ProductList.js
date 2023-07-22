@@ -14,13 +14,36 @@ const ProductList = () => {
       .catch(error => console.error(error));
   }, []);
 
+  const containerStyle = {
+    maxWidth: '600px',
+    margin: '0 auto',
+    padding: '20px',
+  };
+
+  const productListStyle = {
+    listStyle: 'none',
+    padding: '0',
+    margin: '0',
+  };
+
+  const listItemStyle = {
+    marginBottom: '10px',
+  };
+
+  const linkStyle = {
+    textDecoration: 'none',
+    color: '#007bff',
+    fontSize: '18px',
+    fontWeight: 'bold',
+  };
+
   return (
-    <div>
+    <div style={containerStyle}>
       <h2>Product List</h2>
-      <ul>
+      <ul style={productListStyle}>
         {products.map(product => (
-          <li key={product._id}>
-            <Link to={`/admin/product/${product._id}`}>{product.title}</Link>
+          <li key={product._id} style={listItemStyle}>
+            <Link to={`/admin/product/${product._id}`} style={linkStyle}>{product.title}</Link>
           </li>
         ))}
       </ul>

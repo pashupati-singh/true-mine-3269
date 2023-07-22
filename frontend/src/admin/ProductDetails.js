@@ -15,21 +15,47 @@ const ProductDetails = () => {
       .catch(error => console.error(error));
   }, [productID]);
 
+  const containerStyle = {
+    maxWidth: '600px',
+    margin: '0 auto',
+    padding: '20px',
+  };
+
+  const productImageStyle = {
+    width: '100%',
+    marginBottom: '20px',
+  };
+
+  const productTitleStyle = {
+    fontSize: '24px',
+    marginBottom: '10px',
+  };
+
+  const productPriceStyle = {
+    fontSize: '18px',
+    fontWeight: 'bold',
+    marginBottom: '10px',
+  };
+
+  const productDescriptionStyle = {
+    marginBottom: '20px',
+  };
+
   if (!product) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div>
+    <div style={containerStyle}>
       <h2>Product Details</h2>
       <div>
-        <img src={product.primary_image} alt={product.title} />
-        <h3>{product.title}</h3>
-        <p>Price: ${product.price}</p>
-        <p>Description: {product.description}</p>
+        <img src={product.primary_image} alt={product.title} style={productImageStyle} />
+        <h3 style={productTitleStyle}>{product.title}</h3>
+        <p style={productPriceStyle}>Price: ${product.price}</p>
+        <p style={productDescriptionStyle}>Description: {product.description}</p>
         {/* Add more product details as needed */}
       </div>
-      <Link to={`/admin/product/${productID}/edit`}>Edit</Link>
+      <Link to={`/admin/product/${productID}/edit`} style={{ marginRight: '10px' }}>Edit</Link>
       <Link to={`/admin/product/${productID}/delete`}>Delete</Link>
     </div>
   );
