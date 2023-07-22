@@ -117,7 +117,7 @@ _Please use these category & type key-value pair to perform any operation on the
 17. category: seeds, type: microgreens_seeds
 18. category: seeds, type: vegetable_seeds
 
-- _Description:_ Get a list of all products.
+- _Description:_ Get a list of all products or according to params.
 - _Response:_ Array of task objects with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 
 - _GET:-_ /product/getproduct/:productID
