@@ -96,6 +96,27 @@ _Base URL:_ http://localhost:8080/
 - _Note:-_ You can use this route also for search based on title, sort based on price, and pagination. Please use these keys to access these functionality _title, 
    sortbyprice, pageno, pagelimit_
 
+_Please use these category & type key-value pair to perform any operation on these fields._
+
+1. category: gardening_inputs, type: fertilizers
+2. category: gardening_inputs, type: grow_bags
+3. category: gardening_inputs, type: grow_beds
+4. category: gardening_inputs, type: pots
+5. category: gardening_inputs, type: potting_medium
+6. category: hydroponics, type: accessorie_hydroponics
+7. category: hydroponics, type: diy_kits_hydroponics
+8. category: hydroponics, type: growing_media_hydroponics
+9. category: hydroponics, type: instrument_hydroponics
+10. category: hydroponics, type: nutrient_hydroponics
+11. category: organic_farming,type: bio_fertilizers
+12. category: organic_farming,type: bio_pesticides
+13. category: organic_farming,type: organic_fertilizers
+14. category: seeds, type: flower_seeds
+15. category: seeds, type: fruit_seeds
+16. category: seeds, type: herb_seeds
+17. category: seeds, type: microgreens_seeds
+18. category: seeds, type: vegetable_seeds
+
 - _Description:_ Get a list of all products.
 - _Response:_ Array of task objects with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
 
