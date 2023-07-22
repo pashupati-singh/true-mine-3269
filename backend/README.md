@@ -99,10 +99,10 @@ _Base URL:_ http://localhost:8080/
 
 - _GET:-_ /product/getproducts
 
-- _Note:-_ You can use this route also for search based on title, sort based on price, and pagination. Please use these keys to access these functionality _title, 
+### _Note:-_ You can use this route also for search based on title, sort based on price, and pagination. Please use these keys to access these functionality _title, 
    sortbyprice, pageno, pagelimit_
 
-_Please use these category & type key-value pair to perform any operation on these fields._
+### _Please use these category & type key-value pair to perform any operation on these fields._
 
 1. category: gardening_inputs, type: fertilizers
 2. category: gardening_inputs, type: grow_bags
