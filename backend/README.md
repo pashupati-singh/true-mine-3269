@@ -73,7 +73,7 @@ _Base URL:_ http://localhost:8080/
 
 - _POST:-_ /user/register
 
-_Note:-_ Now while registration you have to check that password should contain all the following things, otherwise user cannot register.
+### _Note:-_ Now while registration you have to check that password should contain all the following things, otherwise user cannot register.
 ### _At least one uppercase character._
 ### _At least one number._
 ### _At least a special character._
