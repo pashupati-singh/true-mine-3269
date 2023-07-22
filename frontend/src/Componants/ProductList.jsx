@@ -23,20 +23,32 @@ export default function ProductList() {
   }, [searchParams, dispatch]);
   
 
-  return (
-    <DIV>
-        <div>
+  return (<BOX>
+         <SIDEBAR>
             <Sidebar/>
-        </div>
+        </SIDEBAR>
+
+
+    <DIV>
+       
       {products.length > 0 &&
         products.map((product) => {
           return <ProductCard key={product._id} {...product} />;
         })}
     </DIV>
+    </BOX>
   );
 }
 
-const DIV = styled.div`
+const DIV= styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 `;
+const SIDEBAR=styled.div`
+  display: flex;
+  justify-content: end;
+`
+const BOX=styled.div`
+  width: 80%;
+  margin: auto;
+`
