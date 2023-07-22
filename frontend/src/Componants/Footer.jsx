@@ -69,7 +69,7 @@ export default function LargeWithNewsletter() {
               <Logo color={useColorModeValue("gray.700", "white")} />
             </Box>
             <Text fontSize={"sm"}>
-              Copyright © 2022 Garden Guru. All rights reserved
+              Copyright © 2023 Garden Guru. All rights reserved
             </Text>
             <Stack direction={"row"} spacing={6}>
               <SocialButton color={"blue"} label={"Twitter"} href={"#"}>

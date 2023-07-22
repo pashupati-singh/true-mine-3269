@@ -20,6 +20,7 @@ import {
   ChevronRightIcon,
   SmallAddIcon,
 } from "@chakra-ui/icons";
+import { BsCart4 } from "react-icons/bs";
 
 export default function Navigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -89,6 +90,17 @@ export default function Navigation() {
               bg: "green.300",
             }}>
             Sign Up
+          </Button>
+          <Button
+          
+            leftIcon={<BsCart4 />}
+            display={{ base: "none", md: "inline-flex" }}
+          
+            fontSize={"lg"}
+            fontWeight={600}
+            colorScheme="blue"
+            variant="outline">
+            <sub>(1)</sub>
           </Button>
         </Stack>
       </Flex>
