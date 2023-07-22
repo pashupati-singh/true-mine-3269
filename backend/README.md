@@ -73,6 +73,12 @@ _Base URL:_ http://localhost:8080/
 
 - _POST:-_ /user/register
 
+_Note:-_ Now while registration you have to check that password should contain all the following things, otherwise user cannot register.
+=> At least one uppercase character
+=> At least one number
+=> At least a special character
+=> The length of password should be at least 8 characters long
+
 - _Description:_ Create a new user.
 - _Request Body:_ JSON object with properties firstname, lastname, email & password.
 - _Response:_ JSON object with the newly registered user & success message.
