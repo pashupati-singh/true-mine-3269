@@ -99,8 +99,7 @@ _Base URL:_ http://localhost:8080/
 
 - _GET:-_ /product/getproducts
 
-### _Note:-_ You can use this route also for search based on title, sort based on price, and pagination. Please use these keys to access these functionality _title, 
-   sortbyprice, pageno, pagelimit_
+### _Note:-_ You can use this route also for search based on title, sort based on price, and pagination. Please use these keys to access these functionality _title, sortbyprice, pageno, pagelimit_
 
 ### _Please use these category & type key-value pair to perform any operation on these fields._
 
