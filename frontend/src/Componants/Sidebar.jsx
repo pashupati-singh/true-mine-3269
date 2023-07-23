@@ -34,6 +34,7 @@ export default function Sidebar() {
     // so by this, we control our URL and set it into searchParams
     let params = {
       category,
+
     };
     // it is condition that if order is present then only add order to params
     order && (params.order = order);
@@ -46,13 +47,10 @@ export default function Sidebar() {
    
      <span>Sort by:</span> <Dropdown onChange={handleOrder} value={order}>
         <option value=""><span style={{ color: "green" }}>Featured</span></option>
-        <option value="Best">Best Selling</option>
-        <option value="AZ">Alphabetically, A-Z</option>
-        <option value="ZA">Alphabetically, Z-A</option>
+       
         <option value="asc">Low-to-High</option>
         <option value="desc">High-to-Low</option>
-        <option value="old">old-to-new</option>
-        <option value="new">new-to-old</option>
+   
       </Dropdown>
     </DIV>
   );
