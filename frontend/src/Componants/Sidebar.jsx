@@ -1,78 +1,71 @@
-import React, { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
-import { styled } from 'styled-components'
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { styled } from 'styled-components';
 
 export default function Sidebar() {
-  // using this hook because we have to send that values it the url
-  const [searchParams, setSearchParams]=useSearchParams()
+  // using this hook because we have to send those values in the URL
+  const [searchParams, setSearchParams] = useSearchParams();
 
+  // so that while refreshing, data will not change as we gave checked in input change
+  let initialCategory = searchParams.getAll('category');
+  let initialOrder = searchParams.get('order');
+  const [category, setCategory] = useState(initialCategory || []);
+  const [order, setOrder] = useState(initialOrder || '');
 
-  // so that while refreshing data will not changed as we gived checked in input change
-  let initialCategoray=searchParams.getAll("category")
- 
-  let initialOrder=searchParams.get("order")
-const [category, setCategory]=useState(initialCategoray || [])
+  const handleCategory = (e) => {
+    const { value } = e.target;
+    let newCategory = [...category];
+    if (newCategory.includes(value)) {
+      newCategory = newCategory.filter((el) => el !== value);
+    } else {
+      newCategory.push(value);
+    }
+    setCategory(newCategory);
+  };
 
+  const handleOrder = (e) => {
+    const { value } = e.target;
+    setOrder(value);
+  };
 
-const [order, setOrder]=useState(initialOrder || "")
-// this sorting should come in searchparam so pass it in params obj
+  
 
-// console.log(category)
+  useEffect(() => {
+    // so by this, we control our URL and set it into searchParams
+    let params = {
+      category,
 
-const handleCategory=(e)=>{
-const {value}=e.target;
-let newCategory=[...category]
-if(newCategory.includes(value)){
-  newCategory=newCategory.filter((el)=>el !== value)
-}else{
-  newCategory.push(value)
-}
-setCategory(newCategory)
+    };
+    // it is condition that if order is present then only add order to params
+    order && (params.order = order);
 
-}
+    setSearchParams(params);
+  }, [category, order]);
 
-
-// function of sorting input
-const handleorder=(e)=>{
-const {value}=e.target;
-setOrder(value)
-}
-
-useEffect(()=>{
-  // so by this we control our url and set into searchparams
-  let params={
-
-    category,
-    // now order will also come here 
-    // order
-  }
-  // it is codition that if order is present then only add order to params
-  order && (params.order=order)
-
-  setSearchParams(params)
-},[category,order])
   return (
     <DIV>
-<h3>Sort by Price</h3>
-<div className='sorting' onChange={handleorder}>
-  <div>
-     <input type="radio" name='order' value={"asc"}  defaultChecked={order=="asc"}/>
-  <label>Low-to-High</label>
-  </div>
-  {/* giving commen name to both of this so that only one can be select either asc or descending according to user choice */}
- <div>
-   <input type="radio" name='order' value={"desc"} defaultChecked={order=="desc"}/>
-  <label>High-to-Low</label>
- </div>
- 
-</div>
-
+   
+     <span>Sort by:</span> <Dropdown onChange={handleOrder} value={order}>
+        <option value=""><span style={{ color: "green" }}>Featured</span></option>
+       
+        <option value="asc">Low-to-High</option>
+        <option value="desc">High-to-Low</option>
+   
+      </Dropdown>
     </DIV>
-  )
+  );
 }
 
+const DIV = styled.div`
+  /* Add any additional styles here */
+  margin-top: 5%;
+  border: 1px solid gray;
+padding:3px;
+margin-right: 6px;
+`;
 
-const DIV=styled.div`
+const Dropdown = styled.select`
+  /* Add dropdown styles here */
+border: none;
   
- 
-`
+`;
