@@ -76,6 +76,7 @@ userRoutes.post("/login", async (req, res) => {
         msg: "Login successfull",
         token,
         username: `${userCheck.firstname} ${userCheck.lastname}`,
+        email: userCheck.email,
       });
     } else {
       return res
@@ -90,8 +91,6 @@ userRoutes.post("/login", async (req, res) => {
 userRoutes.post("/logout", async (req, res) => {
   try {
     const token = req.headers.authorization?.split(" ")[1] || null;
-
-    // console.log(token);
 
     if (!token) {
       return res.status(401).send({ msg: "Invaild token, please login again" });
