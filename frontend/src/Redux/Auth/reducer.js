@@ -4,6 +4,9 @@ const initalState = {
   isLoading: false,
   token: "",
   isError: false,
+  userName: "",
+  email: "",
+  msg: "",
 };
 
 export const reducer = (state = initalState, action) => {
@@ -14,7 +17,10 @@ export const reducer = (state = initalState, action) => {
       return {
         ...state,
         isLoading: false,
-        token: action.payload,
+        token: action.payload.token,
+        userName: action.payload.username,
+        email: action.payload.email,
+        msg: action.payload.msg,
       };
     case LOGIN_FAILURE:
       return { ...state, isError: true };

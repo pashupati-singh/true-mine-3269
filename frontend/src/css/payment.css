@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+}
+.payment {
+  width: 50%;
+  margin-left: 130px;
+  margin-right: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.contact {
+  display: flex;
+  justify-content: space-between;
+}
+.order {
+  width: 50%;
+  background-color: rgb(249, 245, 245);
+}
+.payment input {
+  margin: 15px;
+  margin-left: -7px;
+  background-color: rgb(226, 230, 226);
+  border: none;
+  width: 100%;
+  font-size: 18px;
+  height: 35px;
+}
+.btn {
+  margin-bottom: 40px;
+  background-color: rgb(95, 159, 95);
+  width: 100%;
+  height: 40px;
+  color: rgb(229, 210, 147);
+  margin-top: 20px;
+  font-size: 18px;
+  border-radius: 20px;
+  margin-right: 20px;
+  font-weight: bold;
+  border: none;
+}
+.headingP {
+  font-size: 30px;
+  margin: 10px;
+  color: rgb(95, 159, 95);
+  margin-left: -7px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.paymentImg {
+  margin-left: 100px;
+}
