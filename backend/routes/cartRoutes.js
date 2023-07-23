@@ -18,7 +18,7 @@ cartRoutes.get("/cartproducts", async (req, res) => {
   }
 });
 
-cartRoutes.post("/addtoproduct", async (req, res) => {
+cartRoutes.post("/addtocart", async (req, res) => {
   try {
     const existingUserID = req.body.userID;
 
