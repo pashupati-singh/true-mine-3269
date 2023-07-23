@@ -43,6 +43,6 @@ export const DeleteCartObj = (payload) => {
   return { type: DELETE_CART, payload };
 };
 
-// export const deleteCartItem = (id: any) => {
-//   return { type: DELETE_CART, payload: id };
-// };
+export const deleteCartItem = (id) => {
+  return { type: DELETE_CART, payload: id };
+};

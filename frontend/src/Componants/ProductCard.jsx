@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const ProductCard = ({ _id, primary_image, title, price, description, old_price, category, type }) => {
   return (
     <CardContainer>
-      <Image src={primary_image} alt={title} />
+     <Link to={`/products/${_id}`}><Image src={primary_image} alt={title} /></Link> 
       <Title>{title}</Title>
       <Price>${price}</Price>
       {/* <Description>{description}</Description> */}

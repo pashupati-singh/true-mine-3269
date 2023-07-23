@@ -20,6 +20,7 @@ export const reducer=(state=initialState,{type,payload})=>{
         ...state,isLoading:false,
         products:payload,
     }}
+
     
     case PRODUCT_FAILURE:{return {
         ...state,isLoading:false,isError:true
