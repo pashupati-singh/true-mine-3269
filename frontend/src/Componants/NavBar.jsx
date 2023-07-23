@@ -92,10 +92,8 @@ export default function Navigation() {
             Sign Up
           </Button>
           <Button
-          
             leftIcon={<BsCart4 />}
             display={{ base: "none", md: "inline-flex" }}
-          
             fontSize={"lg"}
             fontWeight={600}
             colorScheme="blue"
@@ -264,7 +262,7 @@ const NAV_ITEMS = [
     children: [
       {
         label: "Vegetable Seeds",
-        href: "#",
+        href: "category:seeds&type:vegetable_seeds",
       },
       {
         label: "Herbs Seeds",
@@ -289,7 +287,7 @@ const NAV_ITEMS = [
     children: [
       {
         label: "Hydroponic Growing Media",
-        href: "#",
+        href: "",
       },
       {
         label: "Hydroponic Nutrients",

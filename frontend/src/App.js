@@ -1,14 +1,14 @@
 import "./App.css";
 import Footer from "./Componants/Footer";
 import Navigation from "./Componants/NavBar";
-import Home from "./Pages/Home";
+import MainRoutes from "./Routes/Main";
 
 function App() {
   return (
     <div className="App">
       <Navigation />
-      <Home/>
-      <Footer/>
+      <MainRoutes />
+      <Footer />
     </div>
   );
 }
