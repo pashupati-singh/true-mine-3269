@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { LoginUser } from "../Redux/Auth/Action";
 
 const Login = () => {
-  const { token } = useSelector((store) => store.authReducer);
+  const { msg, isAuth } = useSelector((store) => store.authReducer);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -17,6 +17,7 @@ const Login = () => {
   return (
     <div>
       <h2>Login</h2>
+      {isAuth ? <div>{msg}</div> : ""}
       <form onSubmit={handleSubmit}>
         <label>
           EMAIL:
@@ -25,7 +26,6 @@ const Login = () => {
             type="text"
             name="email"
             value={email}
-            placeholder="email"
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
@@ -35,7 +35,6 @@ const Login = () => {
           <br />
           <input
             type="password"
-            placeholder="pass"
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
