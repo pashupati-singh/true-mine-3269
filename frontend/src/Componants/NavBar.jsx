@@ -7,7 +7,6 @@ import {
   Stack,
   Collapse,
   Icon,
-  Link,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -21,6 +20,7 @@ import {
   SmallAddIcon,
 } from "@chakra-ui/icons";
 import { BsCart4 } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export default function Navigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -123,7 +123,6 @@ const DesktopNav = () => {
             <PopoverTrigger>
               <Link
                 p={2}
-                href={navItem.href ?? "#"}
                 fontSize={"sm"}
                 fontWeight={500}
                 color={linkColor}
@@ -256,6 +255,7 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
   {
     label: "Home",
+    href: "/",
   },
   {
     label: "Seeds",
