@@ -1,14 +1,19 @@
 # Server introduction:
-Our E-Commerce Website Backend is the backbone of our online shopping experience, handling critical operations and ensuring smooth functionality. It serves as the engine that powers product management, user authentication, order processing, and more. With its robust architecture and scalable design, our backend ensures a seamless shopping experience for both customers and administrators. The Backend API is designed to manage the Product and User. It allows clients to  read the products through HTTP requests.
+
+Our E-Commerce Website Backend is the backbone of our online shopping experience, handling critical operations and ensuring smooth functionality. It serves as the engine that powers product management, user authentication, order processing, and more. With its robust architecture and scalable design, our backend ensures a seamless shopping experience for both customers and administrators. The Backend API is designed to manage the Product and User. It allows clients to read the products through HTTP requests.
 
 ## Architecture:
+
 The backend follows a three-tier architecture:
 
 ### Presentation Layer: Accepts HTTP requests and communicates with the Application Layer.
+
 ### Application Layer: Handles business logic and interacts with the Data Access Layer.
+
 ### Data Access Layer: Manages interactions with the database.
 
 ## Key Features:
+
 - _Product Management:_ Effortlessly add, update, and remove products from the catalog. Categorize and organize products for easy discovery.
 
 - _User Authentication:_ Secure user registration and authentication to ensure a safe shopping environment. Allow customers to manage their profiles and track their order history.
@@ -24,6 +29,7 @@ The backend follows a three-tier architecture:
 - _Reporting and Analytics:_ Generate valuable insights through data-driven reports, helping administrators make informed decisions and optimize business strategies.
 
 ## Technologies:
+
 Our backend leverages cutting-edge technologies to deliver exceptional performance and maintainability:
 
 - _Node.js:_ A versatile and efficient JavaScript runtime that powers our server-side logic.
@@ -43,8 +49,9 @@ Our backend leverages cutting-edge technologies to deliver exceptional performan
 - _Custom middleware:_ A user authentication middleware for Node.js that ensures secure and customizable authentication.
 
 ## Installation and Setup:
+
 To get started with our E-Commerce Website Backend, follow our easy installation instructions.
- 
+
 - Install Node.js and npm.
 
 - Clone the repository from the URL.
@@ -56,11 +63,13 @@ To get started with our E-Commerce Website Backend, follow our easy installation
 - Set environment variables for database connection: PORT, MONGODB_URL, SECRET_KEY.
 
 - Run npm start to start the backend server.
-  
+
 ## Configuration:
+
 - Environment variables
 
 ## API Documentation:
+
 For detailed information on the available endpoints, request parameters, and responses, refer to our API Documentation.
 
 _PORT:_ The port on which the server listens (default: 8080).
@@ -74,21 +83,23 @@ _Base URL:_ http://localhost:8080/
 - _POST:-_ /user/register
 
 ### _Note:-_ Now while registration you have to check that password should contain all the following things, otherwise user cannot register.
+
 ### _At least one uppercase character._
+
 ### _At least one number._
+
 ### _At least a special character._
+
 ### _The length of password should be at least 8 characters long._
 
 - _Description:_ Create a new user.
 - _Request Body:_ JSON object with properties firstname, lastname, email & password.
 - _Response:_ JSON object with the newly registered user & success message.
-  
 - _POST:-_ /user/login
 
 - _Description:_ Log in to the registered user.
 - _Request Body:_ JSON object with properties email & password.
 - _Response:_ JSON object with the username, token & success message.
-  
 - _POST:-_ /user/logout
 
 - _Description:_ Logged out the user.
@@ -123,29 +134,29 @@ _Base URL:_ http://localhost:8080/
 18. category: seeds, type: vegetable_seeds
 
 - _Description:_ Get a list of all products or according to params.
-- _Response:_ Array of task objects with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
+- _Response:_ Array of task objects with properties \_id, primary_image, alternative_image, title, price, description, old_price, category & type.
 
 - _GET:-_ /product/getproduct/:productID
 
-- _Description:_ Get details of a specific product by its _id.
-- _Request Body:_ Product _id as a string.
+- _Description:_ Get details of a specific product by its \_id.
+- _Request Body:_ Product \_id as a string.
 - _Response:_ JSON object with the specific product.
 
 - _POST:-_ /product/addproduct
 
 - _Description:_ Create a new product.
-- _Request Body:_ JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
+- _Request Body:_ JSON object with properties \_id, primary_image, alternative_image, title, price, description, old_price, category & type.
 - _Response:_ JSON object with the newly created product & success message.
 
 - _PATCH:-_ /product/update/:productID
 
-- _Description:_ Update the propertie of a product by its _id.
-- _Request Body:_ JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
+- _Description:_ Update the propertie of a product by its \_id.
+- _Request Body:_ JSON object with properties \_id, primary_image, alternative_image, title, price, description, old_price, category & type.
 - _Response:_ JSON object with the updated product & success message.
 
 - _DELETE:-_ /product/delete/:productID
 
-- _Description:_ Delete a product by its _id.
+- _Description:_ Delete a product by its \_id.
 - _Response:_ Success message.
 
 ### These Endpoints are for cart.
@@ -153,44 +164,46 @@ _Base URL:_ http://localhost:8080/
 - _GET:-_ /cart/cartproducts
 
 - _Description:_ Get a list of logging user cart products.
-- _Response:_ Array of task objects with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
+- _Response:_ Array of task objects with properties \_id, primary_image, alternative_image, title, price, description, old_price, category & type.
 
-- _POST:-_ /cart/addtoproduct
+- _POST:-_ /cart/addtocart
 
 - _Description:_ Add a new cart product in the logging user cart lists.
-- _Request Body:_ JSON object with properties _id, primary_image, alternative_image, title, price, description, old_price, category & type.
+- _Request Body:_ JSON object with properties \_id, primary_image, alternative_image, title, price, description, old_price, category & type.
 - _Response:_ JSON object with the newly created cart product in the logging user cart lists & success message.
 
 - _DELETE:-_ /cart/delete/:cartproductID
 
-- _Description:_ Delete a cart product in the logging user cart lists by its _id.
+- _Description:_ Delete a cart product in the logging user cart lists by its \_id.
 - _Response:_ Success message.
 
 ## Data Models:
+
 - User example:-
   {
-    firstname: { type: String, required: true },
-    lastname: { type: String, required: true },
-    email: { type: String, required: true },
-    password: { type: String, required: true },
+  firstname: { type: String, required: true },
+  lastname: { type: String, required: true },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
   },
-  
 - Product & cart example:-
   {
-    primary_image: { type: String, required: true },
-    alternative_image: { type: String, required: true },
-    title: { type: String, required: true },
-    price: { type: Number, required: true },
-    description: { type: String, required: true },
-    old_price: { type: String, required: false },
-    category: { type: String, required: true },
-    type: { type: String, required: true },
+  primary_image: { type: String, required: true },
+  alternative_image: { type: String, required: true },
+  title: { type: String, required: true },
+  price: { type: Number, required: true },
+  description: { type: String, required: true },
+  old_price: { type: String, required: false },
+  category: { type: String, required: true },
+  type: { type: String, required: true },
   },
-  
+
 ## Error Handling:
+
 - HTTP status codes 400, 404, and 500 are used for error responses.
 - Error responses include a message field with a description of the error.
 
 ## Security Considerations:
+
 - Authentication is implemented in this backend.
 - Do not use this backend in a production environment without proper security measures.
