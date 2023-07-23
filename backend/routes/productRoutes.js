@@ -37,22 +37,19 @@ productRoutes.get("/getproducts", async (req, res) => {
   }
 });
 
-productRoutes.use(authMiddleware);
-
 productRoutes.get("/getproduct/:productID", async (req, res) => {
   try {
-    const existingUserID = req.body.userID;
     const productID = req.params.productID;
 
     const product = await productModel.findById(productID);
 
-    if (product.userID.toString() == existingUserID) {
-      return res.status(200).send(product);
-    }
+    return res.status(200).send(product);
   } catch (error) {
     return res.status(400).send({ error: error.message });
   }
 });
+
+productRoutes.use(authMiddleware);
 
 productRoutes.post("/addproduct", async (req, res) => {
   try {
@@ -105,7 +102,7 @@ productRoutes.delete("/delete/:productID", async (req, res) => {
 
     const product = await productModel.findById(productID);
 
-    if (product.userID.toString() === existingUserID) {
+    if (product.userID.toString() == existingUserID) {
       const deletedProduct = await productModel.findByIdAndDelete(productID);
       return res
         .status(200)
