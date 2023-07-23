@@ -1,41 +1,44 @@
 import { Box, Container, Heading, Image, SimpleGrid } from "@chakra-ui/react";
+import { Link as DomLink } from "react-router-dom";
 
 const Card = ({ imageUrl, imageAlt, text }) => {
   return (
-    <Box
-      position="relative"
-      display="inline-block"
-      maxW="400px"
-      overflow="hidden">
-      <Image
-        _hover={{ transform: "scale(1.1)" }}
-        transition="transform 0.5s ease-out"
-        src={imageUrl}
-        alt={imageAlt}
-        w="100%"
-        h="auto"
-      />
+    <DomLink to={`/products`}>
       <Box
-        position="absolute"
-        bottom="5"
-        left="0"
-        width="100%"
-        bg="rgba(0, 0, 0, 0)"
-        color="#2b2b2b"
-        p={4}>
-        <Heading size="lg">{text}</Heading>
+        position="relative"
+        display="inline-block"
+        maxW="400px"
+        overflow="hidden">
+        <Image
+          _hover={{ transform: "scale(1.1)" }}
+          transition="transform 0.5s ease-out"
+          src={imageUrl}
+          alt={imageAlt}
+          w="100%"
+          h="auto"
+        />
+        <Box
+          position="absolute"
+          bottom="5"
+          left="0"
+          width="100%"
+          bg="rgba(0, 0, 0, 0)"
+          color="#2b2b2b"
+          p={4}>
+          <Heading size="lg">{text}</Heading>
+        </Box>
+        <Box
+          position="absolute"
+          bottom="0"
+          left="0"
+          width="100%"
+          bg="rgba(0, 0, 0, 0)"
+          color="#2b2b2b"
+          p={4}>
+          <Heading size="2xl">____</Heading>
+        </Box>
       </Box>
-      <Box
-        position="absolute"
-        bottom="0"
-        left="0"
-        width="100%"
-        bg="rgba(0, 0, 0, 0)"
-        color="#2b2b2b"
-        p={4}>
-        <Heading size="2xl">____</Heading>
-      </Box>
-    </Box>
+    </DomLink>
   );
 };
 

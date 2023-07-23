@@ -7,6 +7,7 @@ import {
   Stack,
   Collapse,
   Icon,
+  Link,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -20,7 +21,7 @@ import {
   SmallAddIcon,
 } from "@chakra-ui/icons";
 import { BsCart4 } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link as DomLink } from "react-router-dom";
 
 export default function Navigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -120,19 +121,21 @@ const DesktopNav = () => {
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
-            <PopoverTrigger>
-              <Link
-                p={2}
-                fontSize={"sm"}
-                fontWeight={500}
-                color={linkColor}
-                _hover={{
-                  textDecoration: "none",
-                  color: linkHoverColor,
-                }}>
-                {navItem.label}
-              </Link>
-            </PopoverTrigger>
+            <DomLink to={`/${navItem.link}`}>
+              <PopoverTrigger>
+                <Link
+                  p={2}
+                  fontSize={"sm"}
+                  fontWeight={500}
+                  color={linkColor}
+                  _hover={{
+                    textDecoration: "none",
+                    color: linkHoverColor,
+                  }}>
+                  {navItem.label}
+                </Link>
+              </PopoverTrigger>
+            </DomLink>
 
             {navItem.children && (
               <PopoverContent
@@ -158,34 +161,35 @@ const DesktopNav = () => {
 
 const DesktopSubNav = ({ label, href }) => {
   return (
-    <Link
-      href={href}
-      role={"group"}
-      display={"block"}
-      p={2}
-      rounded={"md"}
-      _hover={{ bg: useColorModeValue("green.100", "green.900") }}>
-      <Stack direction={"row"} align={"center"}>
-        <Box>
-          <Text
-            transition={"all .1s ease"}
-            _groupHover={{ color: "green.400" }}
-            fontWeight={500}>
-            {label}
-          </Text>
-        </Box>
-        <Flex
-          transition={"all .5s ease"}
-          transform={"translateX(-10px)"}
-          opacity={0}
-          _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
-          justify={"flex-end"}
-          align={"center"}
-          flex={1}>
-          <Icon color={"black.400"} w={5} h={5} as={ChevronRightIcon} />
-        </Flex>
-      </Stack>
-    </Link>
+    <DomLink to={`${href}`}>
+      <Link
+        role={"group"}
+        display={"block"}
+        p={2}
+        rounded={"md"}
+        _hover={{ bg: useColorModeValue("green.100", "green.900") }}>
+        <Stack direction={"row"} align={"center"}>
+          <Box>
+            <Text
+              transition={"all .1s ease"}
+              _groupHover={{ color: "green.400" }}
+              fontWeight={500}>
+              {label}
+            </Text>
+          </Box>
+          <Flex
+            transition={"all .5s ease"}
+            transform={"translateX(-10px)"}
+            opacity={0}
+            _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
+            justify={"flex-end"}
+            align={"center"}
+            flex={1}>
+            <Icon color={"black.400"} w={5} h={5} as={ChevronRightIcon} />
+          </Flex>
+        </Stack>
+      </Link>
+    </DomLink>
   );
 };
 
@@ -202,7 +206,7 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }) => {
+const MobileNavItem = ({ label, link, children, href }) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -216,11 +220,13 @@ const MobileNavItem = ({ label, children, href }) => {
         _hover={{
           textDecoration: "none",
         }}>
-        <Text
-          fontWeight={600}
-          color={useColorModeValue("gray.600", "gray.200")}>
-          {label}
-        </Text>
+        <DomLink to={`/${link}`}>
+          <Text
+            fontWeight={600}
+            color={useColorModeValue("gray.600", "gray.200")}>
+            {label}
+          </Text>
+        </DomLink>
         {children && (
           <Icon
             as={SmallAddIcon}
@@ -255,108 +261,114 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
   {
     label: "Home",
-    href: "/",
+    link: " ",
   },
   {
     label: "Seeds",
+    link: "products?category=seeds",
     children: [
       {
         label: "Vegetable Seeds",
-        href: "category:seeds&type:vegetable_seeds",
+        href: "/products?category=seeds&type=vegetable_seeds",
       },
       {
         label: "Herbs Seeds",
-        href: "#",
+        href: "/products?category=seeds&type=herb_seeds",
       },
       {
         label: "Microgreen Seeds",
-        href: "#",
+        href: "/products?category=seeds&type=microgreens_seeds",
       },
       {
         label: "Fruits Seeds",
-        href: "#",
+        href: "/products?category=seeds&type=fruit_seeds",
       },
       {
         label: "Flower Seeds",
-        href: "#",
+        href: "/products?category=seeds&type=flower_seeds",
       },
     ],
   },
   {
     label: "Hydroponics",
+    link: "products?category=hydroponics",
     children: [
       {
         label: "Hydroponic Growing Media",
-        href: "",
+        href: "/products?category=hydroponics&type=growing_media_hydroponics",
       },
       {
         label: "Hydroponic Nutrients",
-        href: "#",
+        href: "/products?category=hydroponics&type=nutrient_hydroponics",
       },
       {
         label: "Hydroponic DIY Kits",
-        href: "#",
+        href: "/products?category=hydroponics&type=diy_kits_hydroponics",
       },
       {
         label: "Hydroponic Instruments",
-        href: "#",
+        href: "/products?category=hydroponics&type=instrument_hydroponics",
       },
       {
         label: "Hydroponic Accessories",
-        href: "#",
+        href: "/products?category=hydroponics&type=accessorie_hydroponics",
       },
     ],
   },
   {
     label: "Organic Farming",
+    link: "products?category=organic_farming",
     children: [
       {
         label: "Organic Pesticide",
-        href: "#",
+        href: "/products?category=organic_farming&type=organic_fertilizers",
       },
       {
         label: "Organic Fertilizer",
-        href: "#",
+        href: "/products?category=organic_farming&type=organic_fertilizers",
       },
       {
         label: "Bio Pesticide",
-        href: "#",
+        href: "/products?category=organic_farming&type=bio_pesticides",
       },
       {
         label: "Bio Fertilizer",
-        href: "#",
+        href: "/products?category=organic_farming&type=bio_fertilizers",
       },
     ],
   },
   {
     label: "Gardening Inputs",
+    link: "products?category=gardening_inputs",
     children: [
       {
         label: "Potting Medium",
-        href: "#",
+        href: "/products?category=gardening_inputs&type=potting_medium",
       },
       {
         label: "Pots",
-        href: "#",
+        href: "/products?category=gardening_inputs&type=pots",
       },
       {
         label: "Grow Bags",
-        href: "#",
+        href: "/products?category=gardening_inputs&type=grow_bags",
       },
       {
         label: "Grow Beds",
-        href: "#",
+        href: "/products?category=gardening_inputs&type=grow_beds",
       },
       {
         label: "Fertilizer",
-        href: "fertilizer",
+        href: "/products?category=gardening_inputs&type=fertilizers",
       },
     ],
   },
   {
     label: "IPM",
+    link: "products",
   },
   {
     label: "Training",
+    link: "products",
   },
 ];
