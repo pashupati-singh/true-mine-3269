@@ -1,11 +1,26 @@
-import React from 'react'
+import { Box } from "@chakra-ui/react";
+import React from "react";
+import HomeStates from "../Componants/HomeStates";
+import HomeImage from "../Componants/HomeImagres";
+import HomeTabs from "../Componants/HomeTabs";
+import {Carousel} from "../Componants/Carosels";
 
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
-  )
-}
+    <Box>
+      <Carousel />
+      <Box>
+        <HomeStates />
+      </Box>
+      <Box>
+        <HomeTabs />
+      </Box>
 
-export default Home
+      <Box>
+        <HomeImage />
+      </Box>
+    </Box>
+  );
+};
+
+export default Home;

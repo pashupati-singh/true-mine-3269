@@ -1,18 +1,15 @@
 import "./App.css";
-// import CartItem from "./Componants/CartComponent/Cartitem";
-import Cart from "./Componants/Cart";
-
-// import Header from "./Componants/Header";
-// import ProductList from "./Componants/ProductList";
-
-
+import Footer from "./Componants/Footer";
+import Navigation from "./Componants/NavBar";
+import MainRoutes from "./Routes/Main";
 
 function App() {
-  return <div className="App">
-{/* <CartItem /> */}
-{/* <ProductList /> */}
-<Cart />
-  </div>;
+  return (
+    <div className="App">
+      <Navigation />
+      <MainRoutes />
+      <Footer />
+    </div>
+  );
 }
-
 export default App;
