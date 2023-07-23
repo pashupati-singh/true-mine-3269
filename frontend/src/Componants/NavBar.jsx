@@ -71,27 +71,31 @@ export default function Navigation() {
           justify={"flex-end"}
           direction={"row"}
           spacing={6}>
-          <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"#"}>
-            Sign In
-          </Button>
-          <Button
-            as={"a"}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"green.400"}
-            href={"#"}
-            _hover={{
-              bg: "green.300",
-            }}>
-            Sign Up
-          </Button>
+          <DomLink to="/login">
+            <Button
+              as={"a"}
+              fontSize={"sm"}
+              fontWeight={400}
+              variant={"link"}
+              href={"#"}>
+              Sign In
+            </Button>
+          </DomLink>
+          <DomLink to="/signup">
+            <Button
+              as={"a"}
+              display={{ base: "none", md: "inline-flex" }}
+              fontSize={"sm"}
+              fontWeight={600}
+              color={"white"}
+              bg={"green.400"}
+              href={"#"}
+              _hover={{
+                bg: "green.300",
+              }}>
+              Sign Up
+            </Button>
+          </DomLink>
           <Button
             leftIcon={<BsCart4 />}
             display={{ base: "none", md: "inline-flex" }}

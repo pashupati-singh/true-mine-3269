@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../css/payment.css";
 import image from "../Image/img2.png";
+import axios from "axios";
 
 export const Payment = () => {
   const { Auth, email } = useSelector((store) => store.authReducer);
@@ -41,8 +42,7 @@ export const Payment = () => {
   const handlebtn = () => {
     setShow(false);
   };
-  axios
-    .get(`https://gardenguru-server.onrender.com/cartproducts`)
+  axios.get(`https://gardenguru-server.onrender.com/cartproducts`)
     .then((res) => setData(res.data));
 
   let sum = 0;

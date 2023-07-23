@@ -1,6 +1,7 @@
 import "./App.css";
 import Footer from "./Componants/Footer";
 import Navigation from "./Componants/NavBar";
+
 import MainRoutes from "./Routes/Main";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <Navigation />
       <MainRoutes />
+     
       <Footer />
     </div>
   );

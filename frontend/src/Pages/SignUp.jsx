@@ -5,17 +5,24 @@ import image from "../Image/img1.webp";
 import "../css/sign.css";
 
 export const Signup = () => {
-  const [fName, setFName] = useState("");
-  const [lName, setlName] = useState("");
+  const [firstname, setFName] = useState("");
+  const [lastname, setlName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
+    console.log("Dispatch");
     e.preventDefault();
-    const obj = { fName, lName, email, password };
+    const obj = { firstname, lastname, email, password };
     dispatch(SignUp(obj));
   };
+  /**{
+  "email":"omkar@gmail.om",
+"firstname":"omkar",
+"lastname":"walavalkar",
+"password":"Omakr@21143"
+} */
 
   return (
     <>
@@ -36,8 +43,8 @@ export const Signup = () => {
             <input
               className="input"
               type="text"
-              value={fName}
-              name="fName"
+              value={firstname}
+              name="firstname"
               onChange={(e) => setFName(e.target.value)}
             />
           </label>
@@ -48,8 +55,8 @@ export const Signup = () => {
             <input
               className="input"
               type="text"
-              value={lName}
-              name="lName"
+              value={lastname}
+              name="lastname"
               onChange={(e) => setlName(e.target.value)}
             />
           </label>
