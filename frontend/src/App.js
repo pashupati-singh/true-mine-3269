@@ -1,4 +1,5 @@
 import "./App.css";
+// import CartPage from "./Componants/CartComponent";
 import Footer from "./Componants/Footer";
 import Navigation from "./Componants/NavBar";
 
@@ -9,7 +10,6 @@ function App() {
     <div className="App">
       <Navigation />
       <MainRoutes />
-     
       <Footer />
     </div>
   );

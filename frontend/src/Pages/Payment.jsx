@@ -42,8 +42,8 @@ export const Payment = () => {
   const handlebtn = () => {
     setShow(false);
   };
-  axios.get(`https://gardenguru-server.onrender.com/cartproducts`)
-    .then((res) => setData(res.data));
+  // axios.get(`https://gardenguru-server.onrender.com/cartproducts`)
+  //   .then((res) => setData(res.data));
 
   let sum = 0;
   for (let i = 0; i < data.length; i++) {

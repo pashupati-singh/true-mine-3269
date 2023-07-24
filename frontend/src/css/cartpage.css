@@ -1,0 +1,16 @@
+.cart-page {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: row;
+}
+.cart-products {
+  width: 60%;
+  /* border: 1px solid black; */
+}
+.cart-summary {
+  width: 30%;
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+}
