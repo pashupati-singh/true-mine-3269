@@ -6,10 +6,6 @@ import {
   DELETE_CART,
 } from "./actionType";
 
-
-
-
-
 const initialState = {
   loading: false,
   error: false,
@@ -17,10 +13,7 @@ const initialState = {
   cart: [],
 };
 
-export const reducer = (
-  state = initialState,
-  { type, payload }
-) => {
+export const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_CART_LOADING: {
       return {

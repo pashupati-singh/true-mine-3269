@@ -34,7 +34,7 @@ export const deleteItem = (id) => async (dispatch) => {
 
 // Add Data to Cart Function
 export const AddToCart = (_id) => (dispatch) => {
-  fetch(`https://gardenguru-server.onrender.com/cart/addcartproduct/${_id}`, {
+  fetch(`https://gardenguru-server.onrender.com/cart/addtocart/${_id}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/cartpage.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
-      name: "Product 1",
+      name: "Marigold Nana Patula Yellow Seeds",
       price: 10.99,
       quantity: 2,
       image:
@@ -13,20 +14,31 @@ const CartPage = () => {
     },
     {
       id: 2,
-      name: "Product 2",
-      price: 24.99,
+      name: "Marigold Nana Patula Yellow Seeds",
+      price: 70,
       quantity: 1,
       image:
-        "https://gardenguru.in/cdn/shop/products/MarigoldWhite_grande.jpg?v=1645012850",
+        "https://gardenguru.in/cdn/shop/products/417-cucumber-beit-alpha-seeds_grande.jpg?v=1621080197",
     },
-    // Add more sample products here
   ]);
 
-  // Calculate total amount
   const totalAmount = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   );
+
+  // const fetchData = () => {
+  //   fetch(`https://gardenguru-server.onrender.com/cart/cartproducts`, {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${localStorage.getItem("token")}`,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => console.log(data))
+  //     .catch((err) => console.log(err));
+  // };
 
   // Function to increase quantity of a cart item
   const increaseQuantity = (id) => {
@@ -78,7 +90,7 @@ const CartPage = () => {
                     />
 
                     <h3 style={{ fontWeight: "500", marginLeft: "-100px" }}>
-                      {item.name}
+                      {item.title}
                     </h3>
                     <p style={{ fontWeight: "500", marginLeft: "-100px" }}>
                       Price: ${item.price}

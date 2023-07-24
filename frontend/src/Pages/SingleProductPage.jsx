@@ -29,6 +29,7 @@ import { AddCartObj, AddToCart } from "../Redux/carts/action";
 export default function SingleProductPage() {
   const [data, setData] = useState({});
   const { id } = useParams();
+  const { _id } = useParams();
   const toast = useToast();
   const dispatch = useDispatch();
   const errorID = "error-toast";
@@ -37,6 +38,7 @@ export default function SingleProductPage() {
 
   const handleAddToCart = (_id) => {
     dispatch(AddCartObj(_id));
+    console.log("dispatch");
   };
 
   useEffect(() => {
@@ -131,7 +133,7 @@ export default function SingleProductPage() {
               transform: "translateY(2px)",
               boxShadow: "lg",
             }}
-            onClick={() => handleAddToCart(id)}
+            onClick={() => handleAddToCart(_id)}
           >
             Add to cart
           </Button>
