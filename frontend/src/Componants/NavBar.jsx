@@ -29,7 +29,6 @@ export default function Navigation() {
   const { userName, isAuth } = useSelector((store) => store.authReducer);
   const { isOpen, onToggle } = useDisclosure();
 
-  
   return (
     <Box>
       <Flex
@@ -121,16 +120,17 @@ export default function Navigation() {
               <Avatar name={userName} />
             </>
           )}
-
-          <Button
-            leftIcon={<BsCart4 />}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"lg"}
-            fontWeight={600}
-            colorScheme="blue"
-            variant="outline">
-            <sub>(1)</sub>
-          </Button>
+          <DomLink to={"/cart"}>
+            <Button
+              leftIcon={<BsCart4 />}
+              display={{ base: "none", md: "inline-flex" }}
+              fontSize={"lg"}
+              fontWeight={600}
+              colorScheme="blue"
+              variant="outline">
+              <sub>(1)</sub>
+            </Button>
+          </DomLink>
         </Stack>
       </Flex>
 
