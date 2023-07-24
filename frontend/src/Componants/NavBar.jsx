@@ -13,6 +13,7 @@ import {
   PopoverContent,
   useColorModeValue,
   useDisclosure,
+  Avatar,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -22,10 +23,13 @@ import {
 } from "@chakra-ui/icons";
 import { BsCart4 } from "react-icons/bs";
 import { Link as DomLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Navigation() {
+  const { userName, isAuth } = useSelector((store) => store.authReducer);
   const { isOpen, onToggle } = useDisclosure();
 
+  
   return (
     <Box>
       <Flex
@@ -71,31 +75,53 @@ export default function Navigation() {
           justify={"flex-end"}
           direction={"row"}
           spacing={6}>
-          <DomLink to="/login">
-            <Button
-              as={"a"}
-              fontSize={"sm"}
-              fontWeight={400}
-              variant={"link"}
-              href={"#"}>
-              Sign In
-            </Button>
-          </DomLink>
-          <DomLink to="/signup">
-            <Button
-              as={"a"}
-              display={{ base: "none", md: "inline-flex" }}
-              fontSize={"sm"}
-              fontWeight={600}
-              color={"white"}
-              bg={"green.400"}
-              href={"#"}
-              _hover={{
-                bg: "green.300",
-              }}>
-              Sign Up
-            </Button>
-          </DomLink>
+          {!isAuth && (
+            <>
+              <DomLink to="/login">
+                <Button
+                  as={"a"}
+                  fontSize={"sm"}
+                  fontWeight={400}
+                  variant={"link"}
+                  href={"#"}>
+                  Sign In
+                </Button>
+              </DomLink>
+              <DomLink to="/signup">
+                <Button
+                  as={"a"}
+                  display={{ base: "none", md: "inline-flex" }}
+                  fontSize={"sm"}
+                  fontWeight={600}
+                  color={"white"}
+                  bg={"green.400"}
+                  href={"#"}
+                  _hover={{
+                    bg: "green.300",
+                  }}>
+                  Sign Up
+                </Button>
+              </DomLink>
+            </>
+          )}
+          {isAuth && (
+            <>
+              <Button
+                as={"a"}
+                display={{ base: "none", md: "inline-flex" }}
+                fontSize={"sm"}
+                fontWeight={600}
+                color={"white"}
+                bg={"green.400"}
+                _hover={{
+                  bg: "green.300",
+                }}>
+                LogOut
+              </Button>
+              <Avatar name={userName} />
+            </>
+          )}
+
           <Button
             leftIcon={<BsCart4 />}
             display={{ base: "none", md: "inline-flex" }}

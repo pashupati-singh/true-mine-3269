@@ -15,7 +15,7 @@ export const reducer = (state = initialState, action) => {
     case SIGN_REQUEST_PENDING:
       return { ...state, isLoading: true };
     case SIGN_REQUEST_SUCCESS:
-      return { ...state, isLoading: false, msg: action.payload };
+      return { ...state, isLoading: false, msg: action.payload.msg };
     case SIGN_REQUEST_FAILURE:
       return { ...state, isError: true };
     default:

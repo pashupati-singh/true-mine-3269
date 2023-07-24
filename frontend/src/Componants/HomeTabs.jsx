@@ -24,7 +24,7 @@ export default function HomeTabs() {
         </Center>
         <TabPanels>
           <TabPanel>
-            <SimpleGrid columns={{ base: 1, md: 4 }} spacing={10}>
+            <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
               {Seeds?.map((item) => (
                 <HomeCards key={item.id} {...item} />
               ))}
@@ -91,3 +91,5 @@ const Seeds = [
     type: "fruit_seeds",
   },
 ];
+
+

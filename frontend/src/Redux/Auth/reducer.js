@@ -1,6 +1,7 @@
 import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from "./ActionType";
 
 const initalState = {
+  isAuth: false,
   isLoading: false,
   token: "",
   isError: false,
@@ -21,6 +22,7 @@ export const reducer = (state = initalState, action) => {
         userName: action.payload.username,
         email: action.payload.email,
         msg: action.payload.msg,
+        isAuth: true,
       };
     case LOGIN_FAILURE:
       return { ...state, isError: true };
