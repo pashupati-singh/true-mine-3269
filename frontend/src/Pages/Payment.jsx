@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../css/payment.css";
 import image from "../Image/img2.png";
 import axios from "axios";
 
 export const Payment = () => {
+  const navigate = useNavigate();
+  const [price, setPrice] = useState(0);
+  const cartDetails = useSelector(state => state.cartReducer);
+  const { cartItems } = cartDetails;
+  // const { id } = useParams()
+
+
   const { Auth, email } = useSelector((store) => store.authReducer);
   const [data, setData] = useState([]);
   // const { Auth, email } = useSelector((store) => store.authReducer);
@@ -42,13 +49,62 @@ export const Payment = () => {
   const handlebtn = () => {
     setShow(false);
   };
-  axios.get(`https://gardenguru-server.onrender.com/cartproducts`)
+  axios.get(`https://gardenguru-server.onrender.com/cart/cartproducts`)
     .then((res) => setData(res.data));
 
   let sum = 0;
   for (let i = 0; i < data.length; i++) {
     sum += +data[i].price;
   }
+
+// handle payment functionality
+
+const handleOprnrazorPay =(data)=>{
+  const options = {
+      key: process.env.KEY_SECRET,
+      amount: Number(data.amount),
+      currency: data.currency,
+      order_id: data.id,
+      name: 'Avi',//
+      description: 'MY WEBSITE',//
+      handler: function (response) {
+          console.log(response, "56")
+          axios.post(`http://localhost:8080/verify`, { response: response })
+              .then(res => {
+                  console.log(res, "37")
+                  // your orders
+                  // navigate('/');
+                  // setTimeout(()=>{
+                  //     dispatch(afterPayment());
+                  // },1000)
+                  
+              })
+              .catch(err => {
+                  console.log(err)
+              })
+              
+      }
+
+  }
+  const rzp = new window.Razorpay(options)
+  rzp.open()
+}
+
+const buyNow = async (amount) => {
+  console.log("clicked");
+  const _data = { amount: amount };
+  axios.post(`http://localhost:8080/orders`, _data) 
+    .then(res => {
+      console.log(res.data);
+      handleOprnrazorPay(res.data.data);
+    })
+    .catch(err => {
+      console.log(err,"ERR");
+    });
+
+}
+// end
+
 
   return (
     <div>
@@ -175,6 +231,7 @@ export const Payment = () => {
               <div>{shipPrice}</div>
             </label>
             <br />
+           
             <button onClick={() => setShow(true)}>back</button>
           </div>
         )}
@@ -202,6 +259,7 @@ export const Payment = () => {
             ))}
             <hr />
             <p>Total Price: {sum}</p>
+            <button style={{color:"green"}} onClick={() => buyNow(shipPrice)}>Buy Now !</button>
           </div>
         </div>
       </div>

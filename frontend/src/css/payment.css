@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  margin-top: 0%;
 }
 .payment {
   width: 50%;
@@ -21,9 +22,11 @@
   margin-left: -7px;
   background-color: rgb(226, 230, 226);
   border: none;
-  width: 100%;
-  font-size: 18px;
+  width: 90%;
+  font-size: 20px;
   height: 35px;
+  padding: 5px;
+  border-radius: 5px;
 }
 .btn {
   margin-bottom: 40px;
