@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SignUp } from "../Redux/SignUp/action";
 import image from "../Image/img1.webp";
 import "../css/sign.css";
 
 export const Signup = () => {
+  const { msg } = useSelector((store) => store.signReducer);
   const [firstname, setFName] = useState("");
   const [lastname, setlName] = useState("");
   const [email, setEmail] = useState("");
@@ -16,6 +17,7 @@ export const Signup = () => {
     e.preventDefault();
     const obj = { firstname, lastname, email, password };
     dispatch(SignUp(obj));
+    console.log(msg);
   };
   /**{
   "email":"omkar@gmail.om",
