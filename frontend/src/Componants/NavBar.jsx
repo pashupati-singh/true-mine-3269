@@ -127,9 +127,7 @@ export default function Navigation() {
               fontSize={"lg"}
               fontWeight={600}
               colorScheme="blue"
-              variant="outline">
-              <sub>(1)</sub>
-            </Button>
+              variant="outline"></Button>
           </DomLink>
         </Stack>
       </Flex>
