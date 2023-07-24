@@ -51,7 +51,7 @@ const CartPage = () => {
     );
   };
 
-  // Function to decrease quantity of a cart item
+  // Function to decrease quantity  a cart item
   const decreaseQuantity = (id) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
