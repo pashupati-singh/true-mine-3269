@@ -37,7 +37,7 @@ const Cart = () => {
               <Box flex="1">
                 <Text fontSize="md">{item.title}</Text>
                 <Text fontSize="sm" color="gray.500">
-                  Price: ${item.price}
+                  Price: ₹{item.price}
                 </Text>
               </Box>
               <Flex alignItems="center" gap="2">
