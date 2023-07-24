@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../css/cartpage.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import axios from "axios";
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([
     {
@@ -64,6 +65,58 @@ const CartPage = () => {
   const removeItem = (id) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
+
+
+
+// handle payment functionality
+
+const handleOprnrazorPay =(data)=>{
+  const options = {
+    key: process.env.KEY_SECRET,
+      amount: Number(data.amount),
+      currency: data.currency,
+      order_id: data.id,
+      name: 'Avi',//
+      description: 'MY WEBSITE',//
+      handler: function (response) {
+          console.log(response, "56")
+          axios.post(`http://localhost:8080/verify`, { response: response })
+              .then(res => {
+                  console.log(res, "37")
+                  // your orders
+                  // navigate('/');
+                  // setTimeout(()=>{
+                  //     dispatch(afterPayment());
+                  // },1000)
+                  
+              })
+              .catch(err => {
+                  console.log(err)
+              })
+              
+      }
+
+  }
+  const rzp = new window.Razorpay(options)
+  rzp.open()
+}
+
+const buyNow = async (amount) => {
+  console.log("clicked");
+  const _data = { amount: amount };
+  axios.post(`http://localhost:8080/orders`, _data) 
+    .then(res => {
+      console.log(res.data);
+      handleOprnrazorPay(res.data.data);
+    })
+    .catch(err => {
+      console.log(err,"ERR");
+    });
+
+}
+// end
+
+
 
   return (
     <>
@@ -144,11 +197,11 @@ const CartPage = () => {
           <div style={{ fontWeight: "bold", color: "green" }}>
             <h2>Total Amount: ${totalAmount.toFixed(2)}</h2>
             {/* Add payment options here */}
-            <Link to="/payment">
-              <button className="btn" style={{ marginLeft: "10px" }}>
+          
+              <button onClick={() => buyNow(totalAmount)} className="btn" style={{ marginLeft: "10px" }}>
                 PROCEED TO CHECKOUT
               </button>
-            </Link>
+           
           </div>
         </div>
       </div>
