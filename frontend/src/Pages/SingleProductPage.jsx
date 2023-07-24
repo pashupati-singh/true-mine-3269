@@ -27,6 +27,7 @@ import { useDispatch } from "react-redux";
 import { AddCartObj, AddToCart } from "../Redux/carts/action";
 
 export default function SingleProductPage() {
+  const [state,setstate]=useState(false);
   const [data, setData] = useState({});
   const { id } = useParams();
   const { _id } = useParams();
@@ -39,6 +40,8 @@ export default function SingleProductPage() {
   const handleAddToCart = (_id) => {
     dispatch(AddCartObj(_id));
     console.log("dispatch");
+    setstate(true)
+    
   };
 
   useEffect(() => {
@@ -134,8 +137,8 @@ export default function SingleProductPage() {
               boxShadow: "lg",
             }}
             onClick={() => handleAddToCart(_id)}
-          >
-            Add to cart
+          >{state?"Added to cart":"Add to cart"}
+            
           </Button>
 
           <Stack direction="row" alignItems="center" justifyContent={"center"}>
