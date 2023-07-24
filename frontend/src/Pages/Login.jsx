@@ -19,7 +19,7 @@ import { Navigate } from "react-router-dom";
 import { Toast } from "../Componants/Toast";
 
 export const Login = () => {
-  const { isAuth } = useSelector((store) => store.authReducer);
+  const { isAuth, token } = useSelector((store) => store.authReducer);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -31,8 +31,6 @@ export const Login = () => {
     dispatch(LoginUser(obj));
   };
 
-
-  
   // useEffect(() => {
   //   // Check if authentication state is stored in localStorage
   //   const storedAuth = localStorage.getItem("isAuth")||false;
@@ -46,6 +44,9 @@ export const Login = () => {
   //   // Update localStorage when authentication state changes
   //   localStorage.setItem("isAuth", isAuth);
   // }, [isAuth]);
+  useEffect(() => {
+    localStorage.setItem("token", JSON.stringify(token));
+  }, [token]);
 
   if (isAuth) {
     return <Navigate to={"/"} />;
@@ -86,11 +87,13 @@ export const Login = () => {
                 <Stack
                   direction={{ base: "column", sm: "row" }}
                   align={"start"}
-                  justify={"space-between"}>
+                  justify={"space-between"}
+                >
                   {/* Updated checkbox handling */}
                   <Checkbox
                     isChecked={rememberMe}
-                    onChange={(e) => setRememberMe(e.target.checked)}>
+                    onChange={(e) => setRememberMe(e.target.checked)}
+                  >
                     Remember me
                   </Checkbox>
                   <Link color={"blue.400"}>Forgot password?</Link>
@@ -102,7 +105,8 @@ export const Login = () => {
                   color={"white"}
                   _hover={{
                     bg: "blue.500",
-                  }}>
+                  }}
+                >
                   Log-in
                 </Button>
               </Stack>
