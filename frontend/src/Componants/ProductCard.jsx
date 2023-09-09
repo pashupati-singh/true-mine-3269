@@ -1,11 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-const ProductCard = ({ _id, primary_image, title, price, description, old_price, category, type }) => {
+const ProductCard = ({
+  _id,
+  primary_image,
+  title,
+  price,
+  description,
+  old_price,
+  category,
+  type,
+}) => {
   return (
     <CardContainer>
-     <Link to={`/products/${_id}`}><Image src={primary_image} alt={title} /></Link> 
+      <Link to={`/products/${_id}`}>
+        <Image src={primary_image} alt={title} width={"100px"} />
+      </Link>
       <Title>{title}</Title>
       <Price>${price}</Price>
       {/* <Description>{description}</Description> */}
@@ -24,7 +35,7 @@ const CardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   transition: transform 0.2s ease-in-out;
-border: none;
+  border: none;
   &:hover {
     transform: scale(1.05);
   }

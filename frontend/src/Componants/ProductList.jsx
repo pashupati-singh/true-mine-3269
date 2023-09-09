@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from '../Redux/Products/action';
-import ProductCard from './ProductCard';
-import { styled } from 'styled-components';
-import { useSearchParams, useLocation } from 'react-router-dom';
-import Sidebar from './Sidebar';
-import { inf } from 'react-infinite-scroll-component';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../Redux/Products/action";
+import ProductCard from "./ProductCard";
+import { styled } from "styled-components";
+import { useSearchParams, useLocation } from "react-router-dom";
+import Sidebar from "./Sidebar";
+import { inf } from "react-infinite-scroll-component";
 
 export default function ProductList() {
   const [page, setPage] = useState(1);
@@ -21,7 +21,10 @@ export default function ProductList() {
 
   const handleInfiniteScroll = () => {
     try {
-      if (window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight) {
+      if (
+        window.innerHeight + document.documentElement.scrollTop + 1 >=
+        document.documentElement.scrollHeight
+      ) {
         setPage((prev) => prev + 1);
       }
       if (document.documentElement.scrollTop === 0) {
@@ -34,20 +37,22 @@ export default function ProductList() {
 
   let paramObj = {
     params: {
-      sortbyprice: searchParams.get('order'),
+      sortbyprice: searchParams.get("order"),
       pageno: page,
       pagelimit: limit,
     },
   };
+
+  console.log(searchParams.getAll("category"), searchParams.getAll("type"));
 
   useEffect(() => {
     dispatch(getProducts(paramObj));
   }, [searchParams, page]);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleInfiniteScroll);
+    window.addEventListener("scroll", handleInfiniteScroll);
     return () => {
-      window.removeEventListener('scroll', handleInfiniteScroll);
+      window.removeEventListener("scroll", handleInfiniteScroll);
     };
   }, []);
 
