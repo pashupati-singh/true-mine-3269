@@ -26,7 +26,7 @@ app.use("/product", productRoutes);
 app.use("/cart", cartRoutes);
 app.post("/orders",orders)
 app.post("/verify",verify);
-app.listen(process.env.PORT || 7070, () => {
+app.listen(process.env.PORT || 8080, () => {
   try {
     connection();
 

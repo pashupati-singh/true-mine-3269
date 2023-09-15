@@ -6,34 +6,47 @@ const cartModel = require("../models/cartModel");
 
 productRoutes.get("/getproducts", async (req, res) => {
   try {
-    const { title, pageno, pagelimit, sortbyprice } = req.query;
-    const query = new Object();
+    const { title, pageno, pagelimit, sortbyprice, category, type } = req.query;
+    const query = {};
+
     if (title) {
-      query.title = RegExp(title, "i");
+      query.title = new RegExp(title, "i");
     }
-    const toSkip = pageno * pagelimit - pagelimit;
-    let sortOrder = null;
-    let sortBy = null;
+
+    if (category && type) {
+      query.$and = [
+        { category: new RegExp(category, "i") },
+        { type: new RegExp(type, "i") },
+      ];
+    } else if (category || type) {
+      query.$or = [];
+
+      if (category) {
+        query.$or.push({ category: new RegExp(category, "i") });
+      }
+
+      if (type) {
+        query.$or.push({ type: new RegExp(type, "i") });
+      }
+    }
+
+    const skip = (pageno - 1) * pagelimit;
+    const sort = {};
 
     if (sortbyprice) {
-      sortBy = "price";
+      sort.price = sortbyprice === "asc" ? 1 : -1;
     }
-
-    if (sortbyprice === "asc") {
-      sortOrder = 1;
-    } else if (sortbyprice === "desc") {
-      sortOrder = -1;
-    }
+    console.log("query", query);
 
     const products = await productModel
       .find(query)
-      .sort({ [sortBy]: sortOrder })
-      .skip(toSkip)
-      .limit(pagelimit);
+      .sort(sort)
+      .skip(skip)
+      .limit(Number(pagelimit));
 
-    return res.status(200).send(products);
+    res.status(200).send(products);
   } catch (error) {
-    return res.status(400).send({ error: error.message });
+    res.status(400).send({ error: error.message });
   }
 });
 

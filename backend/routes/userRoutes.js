@@ -60,7 +60,9 @@ userRoutes.post("/register", async (req, res) => {
 userRoutes.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log(email, password);
     const userCheck = await userModel.findOne({ email });
+
     if (!userCheck) {
       return res
         .status(400)
@@ -73,7 +75,8 @@ userRoutes.post("/login", async (req, res) => {
       const token = jwt.sign({ userID: userCheck._id }, process.env.SECRET_KEY);
 
       return res.status(200).send({
-        msg: "Login successfull",
+        status: true,
+        msg: "Login successful",
         token,
         username: `${userCheck.firstname} ${userCheck.lastname}`,
         email: userCheck.email,
@@ -81,7 +84,7 @@ userRoutes.post("/login", async (req, res) => {
     } else {
       return res
         .status(400)
-        .send({ msg: "Invaild password, please try again" });
+        .send({ msg: "Invalid password, please try again", status: false });
     }
   } catch (error) {
     return res.status(400).send({ error: error.message });
