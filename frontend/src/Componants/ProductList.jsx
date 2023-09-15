@@ -11,6 +11,7 @@ export default function ProductList() {
   const [page, setPage] = useState(1);
   const limit = 24;
   const [searchParams] = useSearchParams();
+  console.log(searchParams);
   const products = useSelector((store) => store.productReducer.products);
   const dispatch = useDispatch();
   const location = useLocation();
@@ -28,7 +29,11 @@ export default function ProductList() {
         setPage((prev) => prev + 1);
       }
       if (document.documentElement.scrollTop === 0) {
-        setPage(1); // Reset the page to 1 when user reaches the top
+        if (page > 1) {
+          setPage((prev) => prev - 1);
+        } else {
+          setPage(1);
+        } // Reset the page to 1 when user reaches the top
       }
     } catch (error) {
       console.log(error);
@@ -37,13 +42,15 @@ export default function ProductList() {
 
   let paramObj = {
     params: {
+      category: searchParams.getAll("category"),
+      type: searchParams.getAll("type"),
       sortbyprice: searchParams.get("order"),
       pageno: page,
       pagelimit: limit,
     },
   };
 
-  console.log(searchParams.getAll("category"), searchParams.getAll("type"));
+  // console.log(searchParams.getAll("category"), searchParams.getAll("type"));
 
   useEffect(() => {
     dispatch(getProducts(paramObj));
@@ -66,8 +73,7 @@ export default function ProductList() {
         dataLength={products.length}
         next={fetchData}
         hasMore={true}
-        loader={<h4>Loading...</h4>}
-      >
+        loader={<h4>Loading...</h4>}>
         <DIV>
           {products.length > 0 &&
             products.map((product) => {

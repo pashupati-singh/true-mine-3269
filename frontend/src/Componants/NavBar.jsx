@@ -14,6 +14,7 @@ import {
   useColorModeValue,
   useDisclosure,
   Avatar,
+  useToast,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -23,12 +24,40 @@ import {
 } from "@chakra-ui/icons";
 import { BsCart4 } from "react-icons/bs";
 import { Link as DomLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Logout } from "../Redux/Auth/Action";
 
 export default function Navigation() {
-  const { userName, isAuth } = useSelector((store) => store.authReducer);
+  const { userName, isAuth, token } = useSelector((store) => store.authReducer);
   const { isOpen, onToggle } = useDisclosure();
+  const dispatch = useDispatch();
+  const toast = useToast();
 
+  const handleLogout = (e) => {
+    e.preventDefault();
+    dispatch(Logout(token))
+      .then(() => {
+        toast({
+          title: "Logout Successful",
+          description: "You have successfully logged out.",
+          status: "success",
+          position: "top",
+          duration: 5000,
+          isClosable: true,
+        });
+      })
+      .catch((error) => {
+        toast({
+          title: "Logout Failed",
+          description: "There was an error during logout.",
+          status: "error",
+          position: "top",
+          duration: 5000,
+          isClosable: true,
+        });
+        console.error("Logout error:", error);
+      });
+  };
   return (
     <Box>
       <Flex
@@ -106,6 +135,7 @@ export default function Navigation() {
           {isAuth && (
             <>
               <Button
+                onClick={(e) => handleLogout(e)}
                 as={"a"}
                 display={{ base: "none", md: "inline-flex" }}
                 fontSize={"sm"}

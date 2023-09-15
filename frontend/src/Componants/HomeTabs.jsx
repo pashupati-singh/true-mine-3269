@@ -30,28 +30,28 @@ export default function HomeTabs() {
           </TabList>
         </Center>
         <TabPanels>
-          <TabPanel>
+          <TabPanel key={"seeds"}>
             <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
               {Seeds?.map((item) => (
                 <HomeCards key={item.id} {...item} />
               ))}
             </SimpleGrid>
           </TabPanel>
-          <TabPanel>
+          <TabPanel key={"products"}>
             <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
               {products?.map((item) => (
                 <HomeCards key={item.id} {...item} />
               ))}
             </SimpleGrid>
           </TabPanel>
-          <TabPanel>
+          <TabPanel key={"diy"}>
             <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
               {Diy?.map((item) => (
                 <HomeCards key={item.id} {...item} />
               ))}
             </SimpleGrid>
           </TabPanel>
-          <TabPanel>
+          <TabPanel key={"training"}>
             <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
               {training?.map((item) => (
                 <HomeCards key={item.id} {...item} />

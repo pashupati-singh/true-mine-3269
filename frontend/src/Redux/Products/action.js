@@ -1,4 +1,5 @@
 import axios from "axios";
+// require("dotenv").config();
 import {
   ADD_TO_CART,
   CLEAR_CART,
@@ -15,9 +16,10 @@ export const getProducts = (obj) => async (dispatch) => {
   dispatch({ type: PRODUCT_REQUEST });
   try {
     const res = await axios.get(
-      "https://gardenguru-server.onrender.com/product/getproducts",
+      `http://localhost:8080/product/getproducts`,
       obj
     );
+    console.log(obj);
     dispatch({ type: GET_PRODUCT_SUCCESS, payload: res.data });
     return res.data; // Return the data from the API call
   } catch (err) {
@@ -27,9 +29,7 @@ export const getProducts = (obj) => async (dispatch) => {
 };
 
 export const singleuser = async (id) => {
-  let res = await axios.get(
-    `https://gardenguru-server.onrender.com/product/getproduct/${id}`
-  );
-  console.log(res.data);
+  let res = await axios.get(`http://localhost:8080/product/getproduct/${id}`);
+  // console.log(res.data);
   return res.data;
 };

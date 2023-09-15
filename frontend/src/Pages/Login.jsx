@@ -13,10 +13,11 @@ import {
   Button,
   Heading,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 
 import { Navigate } from "react-router-dom";
-import { Toast } from "../Componants/Toast";
+// import { Toast } from "../Componants/Toast";
 
 export const Login = () => {
   const { isAuth, token } = useSelector((store) => store.authReducer);
@@ -24,11 +25,39 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const dispatch = useDispatch();
+  const toast = useToast();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const obj = { email, password };
-    dispatch(LoginUser(obj));
+
+    dispatch(LoginUser(obj))
+      .then((data) => {
+        // console.log("Data received after login:", data);
+
+        // Display toast or perform other actions on successful login
+        toast({
+          title: "Login Successful",
+          description: "You have successfully logged in.",
+          status: "success",
+          position: "top",
+          duration: 5000,
+          isClosable: true,
+        });
+      })
+      .catch((error) => {
+        // Handle errors, if needed
+        console.error("Login error:", error);
+        // Display an error toast or perform other error handling actions
+        toast({
+          title: "Login Failed",
+          description: "There was an error during login.",
+          status: "error",
+          position: "top",
+          duration: 5000,
+          isClosable: true,
+        });
+      });
   };
 
   // useEffect(() => {
@@ -87,13 +116,11 @@ export const Login = () => {
                 <Stack
                   direction={{ base: "column", sm: "row" }}
                   align={"start"}
-                  justify={"space-between"}
-                >
+                  justify={"space-between"}>
                   {/* Updated checkbox handling */}
                   <Checkbox
                     isChecked={rememberMe}
-                    onChange={(e) => setRememberMe(e.target.checked)}
-                  >
+                    onChange={(e) => setRememberMe(e.target.checked)}>
                     Remember me
                   </Checkbox>
                   <Link color={"blue.400"}>Forgot password?</Link>
@@ -105,8 +132,7 @@ export const Login = () => {
                   color={"white"}
                   _hover={{
                     bg: "blue.500",
-                  }}
-                >
+                  }}>
                   Log-in
                 </Button>
               </Stack>
