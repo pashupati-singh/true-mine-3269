@@ -12,7 +12,7 @@ export const LoginUser = (obj) => (dispatch) => {
 
   // Return the axios.post() promise here
   return axios
-    .post(`http://localhost:8080/user/login`, obj)
+    .post(`https://mock-api-template2-ighr.onrender.com/login`, obj)
     .then((data) => {
       // console.log(data.data);
       dispatch({ type: LOGIN_SUCCESS, payload: data.data });
