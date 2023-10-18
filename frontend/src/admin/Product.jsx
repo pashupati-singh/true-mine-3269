@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./otherComponent/navbar";
 import { styled } from "styled-components";
 import axios from "axios";
+import "../admin/Prroduct.css";
 import {
   Button,
   Modal,
@@ -85,33 +86,59 @@ export default function Product() {
           onClick={() => {
             onOpen();
             setAction("add");
-          }}>
+          }}
+        >
           +
         </button>
         <div className="productShow">
           {products.map((product) => (
             <div className="productCard" key={product._id}>
               {/* Display product information here */}
-              <h3>{product.title}</h3>
-              <p>{product.description}</p>
-              <p>Price: ${product.price}</p>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "normal",
+                  alignItems: "center",
+                }}
+              >
+                <img src={product.primary_image} alt="error" width={"200px"} />
+                <h3 style={{ fontWeight: "bold", width: "10%" }}>
+                  {product.title}
+                </h3>
+                <p class="limited-paragraph" style={{ width: "50%" }}>
+                  {product.description}
+                </p>
+                <p style={{ fontWeight: "bold", width: "8%" }}>
+                  {" "}
+                  Price: ${product.price}
+                </p>
+              </div>
+
               {/* Additional product details */}
-              <Button
-                colorScheme="linkedin"
-                size="xs"
-                onClick={() => {
-                  setSelected(product);
-                  setAction("edit");
-                  onOpen();
-                }}>
-                Edit
-              </Button>
-              <Button
-                colorScheme="red"
-                size="xs"
-                onClick={() => deleteProduct(product._id)}>
-                Delete
-              </Button>
+              <div>
+                <Button
+                  colorScheme="linkedin"
+                  size="2xl"
+                  w={"20%"}
+                  h={"30px"}
+                  onClick={() => {
+                    setSelected(product);
+                    setAction("edit");
+                    onOpen();
+                  }}
+                >
+                  Edit
+                </Button>
+                <Button
+                  colorScheme="red"
+                  size="2xl"
+                  w={"20%"}
+                  h={"30px"}
+                  onClick={() => deleteProduct(product._id)}
+                >
+                  Delete
+                </Button>
+              </div>
             </div>
           ))}
         </div>
@@ -126,7 +153,8 @@ export default function Product() {
               {/* Add product form */}
               <div
                 className="addProductModel"
-                style={{ display: "flex", flexDirection: "column" }}>
+                style={{ display: "flex", flexDirection: "column" }}
+              >
                 <p style={{ fontWeight: "600" }}>Title</p>
                 <input
                   type="text"
@@ -157,7 +185,8 @@ export default function Product() {
                 <Button
                   colorScheme="whatsapp"
                   onClick={() => addProduct()}
-                  mt={"10px"}>
+                  mt={"10px"}
+                >
                   Add
                 </Button>
               </div>
@@ -174,7 +203,8 @@ export default function Product() {
               {/* Edit product form */}
               <div
                 className="editProductModel"
-                style={{ display: "flex", flexDirection: "column" }}>
+                style={{ display: "flex", flexDirection: "column" }}
+              >
                 <p style={{ fontWeight: "600" }}>Title</p>
                 <input
                   type="text"
@@ -205,7 +235,8 @@ export default function Product() {
                 <Button
                   onClick={() => updateProduct(selected._id)}
                   colorScheme="whatsapp"
-                  mt={"10px"}>
+                  mt={"10px"}
+                >
                   Save
                 </Button>
                 <Button colorScheme="red" mt={"10px"} onClick={onClose}>
