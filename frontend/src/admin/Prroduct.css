@@ -1,0 +1,6 @@
+.limited-paragraph {
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+  overflow: hidden; /* Hide any overflowing content */
+  text-overflow: ellipsis; /* Display an ellipsis (...) when text overflows */
+  width: 200px; /* Adjust this width to control the number of words displayed */
+}

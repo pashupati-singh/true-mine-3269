@@ -5,11 +5,14 @@ import ProductList from "../Componants/ProductList";
 import { Login } from "../Pages/Login";
 import Home from "../Pages/Home";
 import SingleProductPage from "../Pages/SingleProductPage";
-// import Cart from "../Componants/Cart";
 import Signup from "../Pages/SignUp";
 import { Payment } from "../Pages/Payment";
 import CartPage from "../Componants/CartComponent";
-
+import Admin from "../admin/Admin";
+import Dashboard from "../admin/Dashboard";
+import Product from "../admin/Product";
+import Users from "../admin/Users";
+import UserLog from "../admin/UserLog";
 
 const MainRoutes = () => {
   return (
@@ -22,7 +25,11 @@ const MainRoutes = () => {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/payment" element={<Payment />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
-   
+        <Route path="/admin" element={<Admin />}></Route>
+        <Route exact path="/admin/dashboard" element={<Dashboard />}></Route>
+        <Route path="/admin/product" element={<Product />}></Route>
+        <Route path="/admin/users" element={<Users />}></Route>
+        <Route path="/admin/userLog" element={<UserLog />}></Route>
       </Routes>
     </>
   );
