@@ -23,7 +23,7 @@ import { MdLocalShipping } from "react-icons/md";
 import { useParams } from "react-router";
 import { getProducts, singleuser } from "../Redux/Products/action";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AddCartObj, AddToCart } from "../Redux/carts/action";
 
 export default function SingleProductPage() {
@@ -31,11 +31,11 @@ export default function SingleProductPage() {
   const [data, setData] = useState({});
   const { id } = useParams();
   const { _id } = useParams();
-  const toast = useToast();
   const dispatch = useDispatch();
   const errorID = "error-toast";
   const successID = "success-toast";
   const [qty, setQty] = useState(1);
+  
 
   const handleAddToCart = (_id) => {
     dispatch(AddCartObj(_id));

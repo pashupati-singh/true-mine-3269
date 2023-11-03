@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // import styled from "styled-components";
 import { useColorModeValue } from "@chakra-ui/color-mode";
@@ -21,6 +21,8 @@ const ProductCard = ({
   category,
   type,
 }) => {
+
+
   const handleCart = () => {};
   const handleWish = () => {};
 
@@ -71,7 +73,7 @@ const ProductCard = ({
           <div className="Display">
             <Text className="Hovering">
               <FaShoppingCart
-                style={{ fontSize: "30px" }}
+              className="cartLogo"
                 onClick={handleCart}
               />
             </Text>
